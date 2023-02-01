@@ -65,19 +65,19 @@
 
     var sizeArray = students.length;
 
-    let average = 0;
-    for ( var count = 0; count < sizeArray; count++ ) {
-        average += students[count].math.schoolGrade;
+    var average = 0;
+    for ( var index = 0; index < sizeArray; index++ ) {
+        average += students[index].math.schoolGrade;
     };
     average /= sizeArray;
   
     console.log(`Média dos Alunos: ${average}`);
 
-    for ( var count = 0; count < sizeArray; count++) {
-        if ( students[count].math.schoolGrade >= average ) {
-            console.log(`${students[count].name} Aprovado(a), nota: ${students[count].math.schoolGrade}`);
+    for ( var index = 0; index < sizeArray; index++) {
+        if ( students[index].math.schoolGrade >= average ) {
+            console.log(`${students[index].name} Aprovado(a), nota: ${students[index].math.schoolGrade}`);
         } else {
-            console.log(`${students[count].name} Reprovado(a), nota: ${students[count].math.schoolGrade}`);
+            console.log(`${students[index].name} Reprovado(a), nota: ${students[index].math.schoolGrade}`);
         };
     };
 
