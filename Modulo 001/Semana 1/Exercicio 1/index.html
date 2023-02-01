@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var classId = ["A", "B"];
+        var students = [
+            {
+                name        : "Henrique Souto",
+                height      : 1.78,
+                age         : 20,
+                genre       : "male",
+                class       : "A",
+                math        : {
+                    schoolGrade : 10,
+                },
+            },
+            {
+                name        : "Patríca",
+                height      : 1.76,
+                age         : 21,
+                genre       : "female",
+                class       : "A",
+                math        : {
+                    schoolGrade : 20,
+                },
+            },
+            {
+                name        : "Laíssa",
+                height      : 1.30,
+                age         : 8,
+                genre       : "female",
+                class       : "A",
+                math        : {
+                    schoolGrade : 25,
+                },
+            },
+            {
+                name        : "Puff",
+                height      : 0.15,
+                age         : 2,
+                genre       : "male",
+                class       : "B",
+                math        : {
+                    schoolGrade : 30,
+                },
+            },
+            {
+                name        : "Fulana",
+                height      : 1.60,
+                age         : 30,
+                genre       : "female",
+                class       : "B",
+                math        : {
+                    schoolGrade : 40, 
+                },
+            },
+    ];
+
+    console.log(students);
+
+    var media = (( students[0].math.schoolGrade + students[1].math.schoolGrade + students[2].math.schoolGrade + students[3].math.schoolGrade + students[4].math.schoolGrade) / 5 );
+    
+    console.log(`Média dos Alunos: ${media}`)
+    
+    if ( students[0].math.schoolGrade >= media ) {
+        console.log(`${students[0].name} Aprovado(a), nota: ${students[0].math.schoolGrade}`);
+    } else {
+        console.log(`${students[0].name} Reprovado(a), nota: ${students[0].math.schoolGrade}`)
+    }
+
+    if ( students[1].math.schoolGrade >= media ) {
+        console.log(`${students[1].name} Aprovado(a), nota: ${students[1].math.schoolGrade}`);
+    } else {
+        console.log(`${students[1].name} Reprovado(a), nota: ${students[1].math.schoolGrade}`)
+    }
+
+    if ( students[2].math.schoolGrade >= media ) {
+        console.log(`${students[2].name} Aprovado(a), nota: ${students[2].math.schoolGrade}`);
+    } else {
+        console.log(`${students[2].name} Reprovado(a), nota: ${students[2].math.schoolGrade}`)
+    }
+
+    if ( students[3].math.schoolGrade >= media ) {
+        console.log(`${students[3].name} Aprovado(a), nota: ${students[3].math.schoolGrade}`);
+    } else {
+        console.log(`${students[3].name} Reprovado(a), nota: ${students[3].math.schoolGrade}`)
+    }
+
+    if ( students[4].math.schoolGrade >= media ) {
+        console.log(`${students[4].name} Aprovado(a), nota: ${students[4].math.schoolGrade}`);
+    } else {
+        console.log(`${students[4].name} Reprovado(a), nota: ${students[4].math.schoolGrade}`)
+    }
+    </script> 
+</body>
+</html>
