@@ -63,35 +63,35 @@
 
     console.log(students);
 
-    var media = (( students[0].math.schoolGrade + students[1].math.schoolGrade + students[2].math.schoolGrade + students[3].math.schoolGrade + students[4].math.schoolGrade) / 5 );
+    var average = (( students[0].math.schoolGrade + students[1].math.schoolGrade + students[2].math.schoolGrade + students[3].math.schoolGrade + students[4].math.schoolGrade) / 5 );
     
-    console.log(`Média dos Alunos: ${media}`)
+    console.log(`Média dos Alunos: ${average}`)
     
-    if ( students[0].math.schoolGrade >= media ) {
+    if ( students[0].math.schoolGrade >= average ) {
         console.log(`${students[0].name} Aprovado(a), nota: ${students[0].math.schoolGrade}`);
     } else {
         console.log(`${students[0].name} Reprovado(a), nota: ${students[0].math.schoolGrade}`)
     }
 
-    if ( students[1].math.schoolGrade >= media ) {
+    if ( students[1].math.schoolGrade >= average ) {
         console.log(`${students[1].name} Aprovado(a), nota: ${students[1].math.schoolGrade}`);
     } else {
         console.log(`${students[1].name} Reprovado(a), nota: ${students[1].math.schoolGrade}`)
     }
 
-    if ( students[2].math.schoolGrade >= media ) {
+    if ( students[2].math.schoolGrade >= average ) {
         console.log(`${students[2].name} Aprovado(a), nota: ${students[2].math.schoolGrade}`);
     } else {
         console.log(`${students[2].name} Reprovado(a), nota: ${students[2].math.schoolGrade}`)
     }
 
-    if ( students[3].math.schoolGrade >= media ) {
+    if ( students[3].math.schoolGrade >= average ) {
         console.log(`${students[3].name} Aprovado(a), nota: ${students[3].math.schoolGrade}`);
     } else {
         console.log(`${students[3].name} Reprovado(a), nota: ${students[3].math.schoolGrade}`)
     }
 
-    if ( students[4].math.schoolGrade >= media ) {
+    if ( students[4].math.schoolGrade >= average ) {
         console.log(`${students[4].name} Aprovado(a), nota: ${students[4].math.schoolGrade}`);
     } else {
         console.log(`${students[4].name} Reprovado(a), nota: ${students[4].math.schoolGrade}`)
