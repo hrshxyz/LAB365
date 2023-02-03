@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var students = [
+            {
+                name        : "Henrique Souto",
+                height      : 1.78,
+                age         : 20,
+                genre       : "male",
+                class       : "A",
+                math        : {
+                    schoolGrade : 10,
+                },
+            },
+            {
+                name        : "Patríca",
+                height      : 1.76,
+                age         : 21,
+                genre       : "female",
+                class       : "A",
+                math        : {
+                    schoolGrade : 20,
+                },
+            },
+            {
+                name        : "Laíssa",
+                height      : 1.30,
+                age         : 8,
+                genre       : "female",
+                class       : "A",
+                math        : {
+                    schoolGrade : 25,
+                },
+            },
+            {
+                name        : "Puff",
+                height      : 0.15,
+                age         : 2,
+                genre       : "male",
+                class       : "B",
+                math        : {
+                    schoolGrade : 30,
+                },
+            },
+            {
+                name        : "Fulana",
+                height      : 1.60,
+                age         : 30,
+                genre       : "female",
+                class       : "B",
+                math        : {
+                    schoolGrade : 40, 
+                },
+            },
+    ];
+
+    console.log(students);
+
+    var sizeArray = students.length;
+
+    var average = 0;
+    for ( var index = 0; index < sizeArray; index++ ) {
+        average += students[index].math.schoolGrade;
+    };
+    average /= sizeArray;
+  
+    console.log(`Média dos Alunos: ${average}`);
+
+    function validateSituation(genre , name, schoolGrade, average) {
+        var situationPass = ''
+        if ( genre === 'female') {
+            situationPass = 'Aprovada';
+        } else {
+            situationPass = 'Aprovado';
+        };
+
+        var situationNotPass = ''
+        if ( genre === 'female') {
+            situationNotPass = 'Reprovada';
+        } else {
+            situationNotPass = 'Reprovado';
+        }; 
+
+        if ( schoolGrade >= average ) {
+            console.log(`${name} ${situationPass}, nota: ${schoolGrade}`);
+        } else {
+            console.log(`${name} ${situationNotPass}, nota: ${schoolGrade}`);
+        };
+    }
+    for ( var index = 0; index < sizeArray; index++ ) {
+        validateSituation(students[index].genre , students[index].name, students[index].math.schoolGrade, average);
+    };
+
+    </script> 
+</body>
+</html>
