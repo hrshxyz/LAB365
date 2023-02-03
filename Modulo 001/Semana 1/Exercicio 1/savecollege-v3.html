@@ -74,8 +74,8 @@
     console.log(`Média dos Alunos: ${average}`);
 
     function validateSituation(genre , name, schoolGrade, average) {
-        var situationPass = ''
-        var situationNotPass = ''
+        var situationPass = '';
+        var situationNotPass = '';
 
         switch(genre) {
             case 'female':
@@ -92,11 +92,9 @@
                 break;                
         }
         
-        if ( schoolGrade >= average ) {
-            console.log(`${name} ${situationPass}, nota: ${schoolGrade}`);
-        } else {
-            console.log(`${name} ${situationNotPass}, nota: ${schoolGrade}`);
-        };
+        schoolGrade >= average 
+            ? console.log(`${name} ${situationPass}, nota: ${schoolGrade}`) 
+            : console.log(`${name} ${situationNotPass}, nota: ${schoolGrade}`);
     }
     for ( var index = 0; index < sizeArray; index++ ) {
         validateSituation(students[index].genre , students[index].name, students[index].math.schoolGrade, average);
