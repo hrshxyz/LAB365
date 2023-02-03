@@ -73,7 +73,7 @@
   
     console.log(`Média dos Alunos: ${average}`);
 
-    function validateSituation(genre , name, schoolGrade, average) {
+    function validateSituation(genre, name, schoolGrade, average) {
         var situationPass = '';
         var situationNotPass = '';
 
@@ -96,7 +96,7 @@
             ? console.log(`${name} ${situationPass}, nota: ${schoolGrade}`) 
             : console.log(`${name} ${situationNotPass}, nota: ${schoolGrade}`);
     }
-    
+
     for ( var index = 0; index < sizeArray; index++ ) {
         validateSituation(students[index].genre , students[index].name, students[index].math.schoolGrade, average);
     };
