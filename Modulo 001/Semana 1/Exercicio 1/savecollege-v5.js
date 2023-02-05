@@ -70,7 +70,7 @@ function validateSituation(gender, name, Grade, averagePass) {
     return result;
 };
 
-function verifyAproveReprove() {
+function verifyapprovedRepproved() {
     var sizeArray = students.length;
     averagePass = 7;
     const resultSituation = [];
@@ -81,7 +81,7 @@ function verifyAproveReprove() {
                             averagePass), 
         );
     };
-    var listp = document.getElementById('aproveReprove');
+    var listp = document.getElementById('approvedRepproved');
     listp.innerHTML = '';
     var ul=document.createElement('ul');
     for (var index = 0; index < sizeArray; ++index) {
