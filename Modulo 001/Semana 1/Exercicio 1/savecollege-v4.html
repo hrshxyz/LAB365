@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const students = [];
+        function inputData() {
+            promptName      = prompt('Nome do Aluno');
+            promptHeight    = prompt('Altura(cm)');
+            promptAge       = prompt('Idade');
+            promptGender    = prompt('Sexo');
+            promptClassRoom = prompt('Sala de Aula');
+            promptMathGrade = prompt('Nota');
+            students.push({ name        : String(promptName), 
+                            height      : Number(promptHeight),
+                            age         : Number(promptAge),
+                            gender      : String(promptGender),
+                            classRoom   : String(promptClassRoom),
+                            mathGrade   : Number(promptMathGrade)
+            });
+        }; 
+
+        var continueInputData = 'yes';
+        do {
+            inputData();
+            continueInputData = prompt('Deseja inserir mais dados?');
+        }
+        while ( continueInputData === 'yes' );
+        alert(JSON.stringify(students));
+
+        var sizeArray = students.length;
+        var average = 0;
+        for ( var index = 0; index < sizeArray; index++ ) {
+            average += students[index].mathGrade;
+        };
+        average /= sizeArray;
+        alert(`Média dos Alunos: ${average}`);
+
+        function validateSituation(gender, name, Grade, average) {
+            var situationPass = '';
+            var situationNotPass = '';
+
+            switch(gender) {
+                case 'female':
+                    situationPass = 'Aprovada'; 
+                    situationNotPass = 'Reprovada';
+                    break;
+                case 'male':
+                    situationPass = 'Aprovado'; 
+                    situationNotPass = 'Reprovado';
+                    break;
+                default:
+                    situationPass = 'Aprovado(a)'; 
+                    situationNotPass = 'Reprovado(a)';
+                    break;                
+            }
+            
+            Grade >= average 
+                ? result = (`${name} ${situationPass}, nota: ${Grade}`) 
+                : result = (`${name} ${situationNotPass}, nota: ${Grade}`);
+            return result;
+        }
+
+        const resultSituation = [];
+        for ( var index = 0; index < sizeArray; index++ ) {
+            resultSituation.push( validateSituation(students[index].gender , students[index].name, students[index].mathGrade, average), );
+        };
+        alert(JSON.stringify(resultSituation));
+
+    </script> 
+</body>
+</html>
