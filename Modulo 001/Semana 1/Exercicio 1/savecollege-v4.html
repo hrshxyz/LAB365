@@ -42,7 +42,7 @@
         average /= sizeArray;
         alert(`Média dos Alunos: ${average}`);
 
-        function validateSituation(gender, name, Grade, average) {
+        function validateSituation(gender, name, Grade, averagePass) {
             var situationPass = '';
             var situationNotPass = '';
 
@@ -61,18 +61,19 @@
                     break;                
             }
             
-            Grade >= average 
+            Grade >= averagePass
                 ? result = (`${name} ${situationPass}, nota: ${Grade}`) 
                 : result = (`${name} ${situationNotPass}, nota: ${Grade}`);
             return result;
         }
 
+        averagePass = 7;
         const resultSituation = [];
         for ( var index = 0; index < sizeArray; index++ ) {
             resultSituation.push( validateSituation(students[index].gender,
                                   students[index].name, 
                                   students[index].mathGrade, 
-                                  average), 
+                                  averagePass), 
             );
         };
         alert(JSON.stringify(resultSituation));
