@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        input[type=text] {
+          width: 100%;
+          padding: 3px 5px;
+          margin: 5px 0;
+          box-sizing: border-box;
+        }
+        </style>
+</head>
+<body>
+    <h2>Insira os dados dos alunos.</h2>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" value="Henrique"><br>
+        <label for="height">Height:</label><br>
+        <input type="text" id="height" name="height" value="178">
+        <label for="age">Age:</label><br>
+        <input type="text" id="age" name="age" value="39">
+        <label for="gender">Gender:</label><br>
+        <input type="text" id="gender" name="gender" value="male">
+        <label for="classRoom">Classroom:</label><br>
+        <input type="text" id="classRoom" name="classRoom" value="A">
+        <label for="mathGrade">Mathgrade:</label><br>
+        <input type="text" id="mathGrade" name="mathGrade" value="7">
+      </form>
+
+    <button onclick="inputData()" type="button">Adicione mais Alunos.</button>
+    <button onclick="clearData()" type="button">Limpa lista dos Alunos.</button>
+    <button onclick="averageStudents()" type="button">Calcular média dos Alunos.</button>
+    <button onclick="verifyAproveReprove()" type="button">Verificar Aprovados/Reprovados.</button>
+
+    <p id="average"></p>
+    <p id="students"></p>
+    <p id="aproveReprove"></p>
+
+</body>
+<script src="./savecollege-v5.js"></script>
+</html>
