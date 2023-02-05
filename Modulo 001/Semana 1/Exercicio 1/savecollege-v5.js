@@ -14,8 +14,8 @@ function inputData() {
                     mathGrade   : Number(promptMathGrade)
     });
     var sizeArray = students.length;
-    var listDiv = document.getElementById('students');
-    listDiv.innerHTML = '';
+    var listp = document.getElementById('students');
+    listp.innerHTML = '';
     var ul=document.createElement('ul');
     for (var index = 0; index < sizeArray; ++index) {
         var li=document.createElement('li');
@@ -29,7 +29,7 @@ function inputData() {
         li.appendChild(textnode);
         ul.appendChild(li);                                 
     }
-    listDiv.appendChild(ul);
+    listp.appendChild(ul);
 }; 
 
 function clearData() { students.length = 0; };
@@ -81,8 +81,8 @@ function verifyAproveReprove() {
                             averagePass), 
         );
     };
-    var listDiv = document.getElementById('aproveReprove');
-    listDiv.innerHTML = '';
+    var listp = document.getElementById('aproveReprove');
+    listp.innerHTML = '';
     var ul=document.createElement('ul');
     for (var index = 0; index < sizeArray; ++index) {
         var li=document.createElement('li');
@@ -90,5 +90,5 @@ function verifyAproveReprove() {
         li.appendChild(textnode);
         ul.appendChild(li);                                 
     }
-    listDiv.appendChild(ul);
+    listp.appendChild(ul);
 };
