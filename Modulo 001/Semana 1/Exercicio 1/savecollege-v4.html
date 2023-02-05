@@ -69,7 +69,11 @@
 
         const resultSituation = [];
         for ( var index = 0; index < sizeArray; index++ ) {
-            resultSituation.push( validateSituation(students[index].gender , students[index].name, students[index].mathGrade, average), );
+            resultSituation.push( validateSituation(students[index].gender,
+                                  students[index].name, 
+                                  students[index].mathGrade, 
+                                  average), 
+            );
         };
         alert(JSON.stringify(resultSituation));
 
