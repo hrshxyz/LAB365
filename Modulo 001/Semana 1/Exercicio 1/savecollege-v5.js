@@ -76,9 +76,9 @@ function verifyapprovedRepproved() {
     const resultSituation = [];
     for ( var index = 0; index < sizeArray; index++ ) {
         resultSituation.push( validateSituation(students[index].gender,
-                            students[index].name, 
-                            students[index].mathGrade, 
-                            averagePass), 
+                                                students[index].name, 
+                                                students[index].mathGrade, 
+                                                averagePass), 
         );
     };
     var listp = document.getElementById('approvedRepproved');
