@@ -14,4 +14,4 @@ Versões do exercício 1.
 ![image](https://user-images.githubusercontent.com/31933120/217058892-1debbd37-a8b5-424a-b68f-f6e21fd646d4.png)
 
 - savecollege-v5.html/savecollege-v5.js, com base na v4, foram removidor os alert e prompt, e adicionado document para que a entrada de informções sejam providas pelo formulários, adiconados botões para adicionar os dados, limpar lista de dados, calcular a média e verificar quais alunos foram aprovados e reprovados.
-![image](https://user-images.githubusercontent.com/31933120/217058492-6a051c29-8839-4caf-8712-45c714b369d4.png)
+![image](https://user-images.githubusercontent.com/31933120/217059461-57bf340c-18f0-43a8-a9bf-4558c598b7f1.png)
