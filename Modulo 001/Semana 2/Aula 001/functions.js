@@ -1,4 +1,4 @@
-console.log("Hello ");
+/* console.log("Hello ");
 
 for (i = 0; i < 10; i++) {
     console.log('World');
@@ -15,7 +15,7 @@ numeros.forEach((numero) => {
     somaNumeroes += numero; 
 });
 const media = somaNumeroes / numeros.length;
-console.log(media);
+console.log(media); */
 
 function multiplicationTable() {
     let number = document.getElementById('inputNumber').value;
