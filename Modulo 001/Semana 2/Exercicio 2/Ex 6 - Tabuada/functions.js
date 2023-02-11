@@ -1,5 +1,5 @@
-function multiplicationTable() {
-    var number = document.getElementById('inputNumber').value;
+function multiplicationTable(number) {
+    /* var number = number; */
     var listp = document.getElementById('result');
     listp.innerHTML = '';
     for ( index=1 ; index <=10 ; index++ ) {
@@ -12,3 +12,15 @@ function multiplicationTable() {
         listp.appendChild(ul);
     }
 };
+
+function alert() {
+    var listp = document.getElementById('result');
+    listp.innerHTML = 'Somente valores de Um a Dez são válidos!'
+}
+
+function checkValue() {
+    var number = document.getElementById('inputNumber').value;
+    number > 0 && number <=10 
+        ? multiplicationTable(number)
+        : alert()
+}
