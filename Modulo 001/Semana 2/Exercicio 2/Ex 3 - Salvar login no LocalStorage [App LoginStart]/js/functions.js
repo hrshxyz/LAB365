@@ -36,14 +36,3 @@ window.onload = (event) => {
         ? submitLocalStorage(username, password)
         : window.location.reload
 };
-
-
-
-/* function validadeCredentialsOnload() {
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password');
-
-    check(username, credentials.username) && check(password, credentials.password)
-        ? submitLocalStorage(username, password)
-        : window.location.reload
-}; */
