@@ -1,0 +1,36 @@
+
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}  
+
+h1{
+    text-align: center;
+    color: rgb(94, 19, 165);
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+th {
+    padding: 5px 25px;
+    background-color: #f1f361;
+
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+  
+tbody tr:nth-child(even) {
+    background-color: #ebe5e5;
+}
