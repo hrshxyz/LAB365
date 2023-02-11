@@ -1,0 +1,19 @@
+
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover
+    width: 100%;
+    display: grid;
+   justify-content: center;
+} 
+
+h1{
+    text-align: center;
+    color: rgb(94, 19, 165);
+}
+
+#timeDiv {
+    color:brown;
+    font-size:xx-large
+}
+
