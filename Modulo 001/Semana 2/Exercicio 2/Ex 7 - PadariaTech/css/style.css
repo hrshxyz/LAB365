@@ -14,8 +14,7 @@ h1{
 
 table, td, th {
     border: 1px solid black;
-/*     background-color: #fff;
- */}
+}
   
 table {
     border-collapse: collapse;
@@ -24,4 +23,14 @@ table {
   
 th {
     padding: 5px 25px;
+    background-color: #f1f361;
+
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+  
+tbody tr:nth-child(even) {
+    background-color: #ebe5e5;
 }
