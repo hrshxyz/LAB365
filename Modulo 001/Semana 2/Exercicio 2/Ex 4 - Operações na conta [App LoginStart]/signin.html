@@ -11,6 +11,20 @@
     <p id="nameProfile"></p>
     <p id="emailProfile"></p>
     <div id="imageProfile"></div>
+
+    <label for="username">Altera nome do perfil:</label><br>
+    <input type="username" id="name" name="name" placeholder="Usuário">
+    <button onclick="changeUserName()" type="button">Alterar Usuário</button><br>
+
+    <label for="email">Altera e-mail do perfil:</label><br>
+    <input type="email" id="email" name="email" placeholder="e-mail">
+    <button onclick="changeEmailProfile()" type="button">Alterar e-mail</button><br>
+
+    <label for="image">URL da nova imagem do perfil:</label><br>
+    <input type="text" id="image" name="image" placeholder="URL da Imagem">
+    <button onclick="changeImageProfile()" type="file">Alterar Imagem</button><br>
+
+    
     <button onclick="logout()" type="button">Logout</button>
 </body>
 <script src="./js/perfil.js"></script>
