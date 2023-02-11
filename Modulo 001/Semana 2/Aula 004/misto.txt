@@ -1,0 +1,366 @@
+/* 
+
+function imprime () {
+    return 'brasil'
+}
+
+
+let impressora = () => { return 'argentina'}
+///\\\
+
+
+const impressorona = ()=>'bolívia'
+
+console.log(imprime())
+console.log(impressora())
+console.log(impressorona())
+
+
+
+
+const userEmail = 'reinaldo@teste.com.br';
+const userPass = '123456';
+
+let user = document.getElementById('email').value;
+let pass = document.getElementById('password').value
+let msg = document.getElementById('error')
+let btn = document.getElementById('submit')
+const form = document.getElementById('form-login');
+form.addEventListener('submit', event => {
+        event.preventDefault()
+        event.stopPropagation();  
+        console.log('user '+user)
+
+    if (user == '' || pass == ''){
+        console.log('vazio '+user)
+            msg.innerText = user+' Todos os campos são obrigarórios'
+            msg.hidden = false
+       
+     }else if(user == userEmail && pass == userPass){
+        console.log('logou')
+     }else{
+        console.log('senha invalida')       
+     }
+    
+})
+
+     */
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">        
+        <div class="content">
+            <section id="logon">
+                <div class="mb-1 titulo">
+                    <h1>Acesso Exercícios</h1>
+                </div>
+                <div class="mb-1">
+                    <form id="form-login">
+                        <div class="form-group">
+                          <label for="InputEmail">Seu Email</label>
+                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Seu email" required>                  
+                        </div>
+                        <div class="form-group">
+                          <label for="InputPassword">Password</label>
+                          <input type="password" class="form-control" id="password" placeholder="Password" required>                          
+                        </div>              
+                        <div class="form-group">
+                            <label class="form-check-label" for="Error" id="error" hidden>Usuário ou Senha inválidos</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                      </form>
+                </div>
+               
+            </section>
+
+        </div>
+    </div>
+    
+</body>
+<script src="functions.js">
+
+</script>
+</html>
+
+
+/* BODY */
+body {
+    background-color: #ffbf00;
+    margin: 10;
+}
+
+.counterBox {
+    margin: auto;
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    box-shadow: 3px 5px 5px #9f7606;
+    padding: 20px;
+    border-radius: 175px;
+    width: 300px;
+    height: 300px;
+}
+
+.button {
+    margin: auto;
+    padding: 20px;
+    width: 100px;
+}
+
+#counter{
+    margin: auto;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #ffbf00;
+    font-size: 24px;
+}
+#startCount {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    font-size: 36px;
+}
+
+
+<!DOCTYPE html>
+<html lang=pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="timer.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="counterBox">
+        <p id="counter"></p>
+    </div>
+    <div class="button">
+        <button id="startCount" onclick="restart()">Start</button>
+    </div>
+    <script src="timer.js"></script>
+</body>
+</html>
+
+
+let startTime = 10
+counter.innerHTML = "Click on the button to start"
+function countdown(){
+    if(startTime == 0){
+        counter.innerHTML = "Seu tempo acabou!<br/>Tente novamente!"
+        console.log('Seu tempo acabou!! Tente novamente!!')
+        clearTimeout(recurence) //ta dando erro aqui! Ele não consegue utilizar a variavel recurence aqui
+    }
+    else{
+        let counter = document.getElementById("counter")
+        counter.innerText = startTime --
+        console.log(startTime)
+    }    
+}
+
+function restart(){
+    startTime = 10
+    let recurence = setInterval(countdown, 1000)
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+
+function imprime () {
+    return 'brasil'
+}
+
+
+let impressora = () => { return 'argentina'}
+///\\\
+
+
+const impressorona = ()=>'bolívia'
+
+console.log(imprime())
+console.log(impressora())
+console.log(impressorona())
+
+
+
+
+const userEmail = 'reinaldo@teste.com.br';
+const userPass = '123456';
+
+let user = document.getElementById('email').value;
+let pass = document.getElementById('password').value
+let msg = document.getElementById('error')
+let btn = document.getElementById('submit')
+const form = document.getElementById('form-login');
+
+
+
+form.addEventListener('submit', event => {
+        event.preventDefault()
+        event.stopPropagation();  
+        console.log('user '+user)
+
+    if (user == '' || pass == ''){
+        console.log('vazio '+user)
+            msg.innerText = user+' Todos os campos são obrigarórios'
+            msg.hidden = false
+       
+     }else if(user == userEmail && pass == userPass){
+        console.log('logou')
+     }else{
+        console.log('senha invalida')       
+     }
+    
+})
+
+     */
+
+/* function soma(nome, dinheiro = 0) {
+  const pessoa = {
+    nome,
+    dinheiro,
+  };
+  return pessoa;
+}
+
+console.log(soma("gabriel", 50));
+ */
+/* 
+const { matricula, ...resto } = {
+  matricula: "0212380155-2020-2-00132-167-0045468-44",
+  dataLavratura: "2016-08-10",
+  dataInsercao: "2020-08-11T16:43:11",
+  dataCelebracao: "2020-08-11",
+  conjuges: [
+    {
+      nome: "ALINE SILVA",
+      sexo: "FEMININO",
+      dataNascimento: "2000-01-15",
+      naturalidade: {
+        uf: "RJ",
+        municipio: "ARMACAO DOS BUZIOS",
+        codigoIBGE: 330023,
+      },
+      documentos: [
+        {
+          tipo: "CPF",
+          numero: "10917400704",
+          dataEmissao: "2018-03-12",
+        },
+        {
+          tipo: "RG",
+          numero: "12345M",
+        },
+      ],
+      filiacao: [
+        {
+          nome: "MARIA SILVA",
+          sexo: "FEMININO",
+        },
+        {
+          nome: "SILVANO SILVA",
+          sexo: "MASCULINO",
+        },
+      ],
+    },
+    {
+      nome: "JORGE ISAIAS",
+      sexo: "MASCULINO",
+      dataNascimento: "1998-02-18",
+      naturalidade: {
+        uf: "RJ",
+        municipio: "ARMACAO DOS BUZIOS",
+        codigoIBGE: 330023,
+      },
+      documentos: [
+        {
+          tipo: "CPF",
+          numero: " 00929946014",
+        },
+      ],
+      filiacao: [
+        {
+          nome: "JUSSARA ISAIAS",
+          sexo: "FEMININO",
+        },
+        {
+          nome: "WAGNER ISAIAS",
+          sexo: "MASCULINO",
+        },
+      ],
+    },
+  ],
+  possuiRegistrosAnteriores: "true",
+};
+
+console.log(resto);
+
+const [numero1,numero2,...rest] = [1, 2, 3, 4, 5, 6, 7, 8];
+
+console.log(rest) */
+
+
+
+
+/* let aluno = {}
+function getFormValues() {
+    aluno.email = document.forms.flogin.email
+    aluno.password = document.forms.flogin.pwd
+
+    console.log(aluno)
+}
+
+document.querySelector("#form-login").addEventListener('submit', (e) => {
+    e.preventDefault()
+    getFormValues()
+}) */;
+/* 
+const {[3]:numero} = [1,2,3,4,5];
+console.log(numero)
+
+ */
+
+/* const pioresAlunos = ['tales','gabriel','ursula','fernanda']
+const alunosMaisOuMenos = ['reinaldo','andrei']
+const melhoreAlunos = [...pioresAlunos,...alunosMaisOuMenos,'glauton','karine']
+console.log(melhoreAlunos)
+
+const identidade = {
+    nome:'Rodolfo',
+    rg:6565656
+}
+const contaBancaria = {
+    agencia:'12',
+    conta:'1233'
+}
+
+const dadosAgrupados = {
+    ...identidade,
+    ...contaBancaria
+}
+console.log(dadosAgrupados) */
+
+const numeros = [1,2,3,4,4,5,5,5,6,6,66,7,8,9,9,9,]
+let conjunto = new Set(numeros)
+conjunto.add()
+conjunto.delete(1)
+conjunto.has(4)
+conjunto.clear()
+console.log(conjunto)
