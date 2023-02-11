@@ -1,0 +1,21 @@
+
+body {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+section h1{
+    text-align: center;
+    color: rgb(94, 19, 165);
+}
+
+input {
+    padding: 6px 15px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover
+}
