@@ -32,7 +32,7 @@ window.onload = (event) => {
     const username = localStorage.getItem('username');
     const password = localStorage.getItem('password');
 
-    check(username, credentials.username) && check(password, credentials.password)
-        ? submitLocalStorage(username, password)
-        : window.location.reload
+    if (check(username, credentials.username) && check(password, credentials.password)){
+        submitLocalStorage(username, password)
+    };
 };
