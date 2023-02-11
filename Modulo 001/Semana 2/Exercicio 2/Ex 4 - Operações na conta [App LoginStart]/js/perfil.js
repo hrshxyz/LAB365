@@ -3,14 +3,14 @@ const {defaultNameProfile, defaultEmailProfile, defaultImageProfile} = {
     defaultEmailProfile    : 'henrique@esudante.senai',
     defaultImageProfile    : 'https://picsum.photos/200/300/?blur=2'
 };
-var nameProfile = localStorage.getItem('nameProfile');
-if (nameProfile == null) { localStorage.setItem('nameProfile', defaultNameProfile); };
+let checkNameProfile = localStorage.getItem('nameProfile');
+if (checkNameProfile == null) { localStorage.setItem('nameProfile', defaultNameProfile); };
 
-var emailProfile = localStorage.getItem('emailProfile');
-if (emailProfile == null) { localStorage.setItem('emailProfile', defaultEmailProfile); };
+let checkEmailProfile = localStorage.getItem('emailProfile');
+if (checkEmailProfile == null) { localStorage.setItem('emailProfile', defaultEmailProfile); };
 
-var imageProfile = localStorage.getItem('imageProfile');
-if (imageProfile == null) { localStorage.setItem('imageProfile', defaultImageProfile); };
+let checkImageProfile = localStorage.getItem('imageProfile');
+if (checkImageProfile == null) { localStorage.setItem('imageProfile', defaultImageProfile); };
 
 function setImage() {
     var image = document.createElement('img');
@@ -38,9 +38,9 @@ function changeImageProfile() {
     window.location.reload(true);
 }
 
-nameProfile     = localStorage.getItem('nameProfile'),
-emailProfile    = localStorage.getItem('emailProfile'),
-imageProfile    = localStorage.getItem('imageProfile'),
+let nameProfile     = localStorage.getItem('nameProfile');
+let emailProfile    = localStorage.getItem('emailProfile');
+let imageProfile    = localStorage.getItem('imageProfile');
 
 window.onload = (event) => {
     nameProfile != ''
