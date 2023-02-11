@@ -1,5 +1,4 @@
 function multiplicationTable(number) {
-    /* var number = number; */
     var listp = document.getElementById('result');
     listp.innerHTML = '';
     for ( index=1 ; index <=10 ; index++ ) {
