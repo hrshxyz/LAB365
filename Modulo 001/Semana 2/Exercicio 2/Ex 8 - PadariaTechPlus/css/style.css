@@ -34,3 +34,8 @@ tbody tr:nth-child(odd) {
 tbody tr:nth-child(even) {
     background-color: #ebe5e5;
 }
+
+.alert {
+    font-size: xx-large;
+    color: rgb(230, 9, 9);
+}
