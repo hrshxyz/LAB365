@@ -1,4 +1,4 @@
-https://github.com/walberson/semana3aula1
+/* https://github.com/walberson/semana3aula1 */
 
 /* let copa2026 = ["brazil","franca","alemanha","italia","espanha"];
 console.log(copa2026)
@@ -51,3 +51,11 @@ console.log( numeros.every((num)=>{
  */
 /* 
 num => console.log(num); */
+
+const carteiras = [29.55, 41.22, 33.54, 12.12];
+
+const carteiraTotal = carteiras.reduce((acumulador, valorAtual)=>{
+    return acumulador = acumulador + valorAtual
+})
+
+console.log(carteiraTotal)
