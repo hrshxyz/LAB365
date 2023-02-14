@@ -52,6 +52,20 @@ console.log( numeros.every((num)=>{
 /* 
 num => console.log(num); */
 
+} */
+/* const carteiras = [29.55, 41.22, 33.54, 12.12, 10.20];
+const carteiraTotal = carteiras.reduce(
+  (acumulador, valorAtual, indiceAtual, array) => {
+    acumulador += valorAtual;
+    if (indiceAtual === array.length-1) {
+      return acumulador / array.length;
+    } else {
+      return acumulador;
+    }
+  }
+);
+console.log(carteiraTotal); */
+
 const carteiras = [29.55, 41.22, 33.54, 12.12];
 
 const carteiraTotal = carteiras.reduce((acumulador, valorAtual)=>{
