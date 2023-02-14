@@ -52,7 +52,7 @@ console.log( numeros.every((num)=>{
 /* 
 num => console.log(num); */
 
-} */
+} 
 /* const carteiras = [29.55, 41.22, 33.54, 12.12, 10.20];
 const carteiraTotal = carteiras.reduce(
   (acumulador, valorAtual, indiceAtual, array) => {
