@@ -5,12 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Link WhatsApp</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div id="cssblock">
     <h1>Gerador de Link WhatsApp</h1>
-    <input type="text" id="search"/>
-    <button onclick="searchUsername()" type="button">Pesquisar</button>
-    <p id="user"></p>
+    <div id="form">
+      <label for="phone">Entre com o Número do celular que receberá a MSG.</label>
+      <input type="tel" name="phone" id="cellNumber" placeholder="5551993201815" pattern="[0-9]{4}[0-9]{9}"/>
+      <label for="price">Entre com a Mensagem que será enviada.</label>
+      <input type="text" id="textMessage"/>
+    </div>
+    <button onclick="makeUrl()" type="button">Enviar</button>
+    <p id="urlSendMsg"></p>
+  </div>
 </body>
 <script src="./functions.js"></script>
 </html>
