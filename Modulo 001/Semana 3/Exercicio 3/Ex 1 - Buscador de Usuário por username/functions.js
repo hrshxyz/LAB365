@@ -9,6 +9,7 @@ const data = [{
     "size": "big",
     "created": "September 15, 2021",
     "updated": "November 25, 2022",
+    "rg": '22.595.779-6'
     "coords": "30.0795 111.6412"
   },{
     "name": "Indigo Shady Stream",
@@ -21,6 +22,7 @@ const data = [{
     "size": "mini",
     "created": "December 21, 2022",
     "updated": "February 7, 2023",
+    "rg": '37.375.553-3'
     "coords": "40.4485 -76.4953"
   },{
     "name": "Historic Trail",
@@ -33,6 +35,7 @@ const data = [{
     "size": "mini",
     "created": "August 26, 2022",
     "updated": "November 2, 2022",
+    "rg": '43.469.889-1'
     "coords": "44.4780 10.7721"
   },{
     "name": "Old Footpath",
@@ -45,6 +48,7 @@ const data = [{
     "size": "small",
     "created": "December 10, 2021",
     "updated": "July 27, 2022",
+    "rg": '30.318.669-0'
     "coords": "15.3748 -25.0323"
   },
   {
@@ -58,6 +62,7 @@ const data = [{
     "size": "small",
     "created": "May 4, 2022",
     "updated": "June 13, 2022",
+    "rg": '10.682.931-2'
     "coords": "81.8303 33.4350"
   },
   
@@ -72,6 +77,7 @@ const data = [{
     "size": "large",
     "created": "June 20, 2022",
     "updated": "November 19, 2022",
+    "rg": '45.675.097-6'
     "coords": "-68.5221 -97.7478"
   },
   {
@@ -85,6 +91,7 @@ const data = [{
     "size": "medium",
     "created": "August 27, 2022",
     "updated": "November 8, 2022",
+    "rg": '34.119.462-1'
     "coords": "-74.4389 146.7820"
   }
 ];
