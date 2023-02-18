@@ -12,7 +12,6 @@ async function searchData() {
     try {
         const response = await fetch("https://rickandmortyapi.com/api/character/21");
         const dados = await response.json()
-        console.log(dados);
         rm_name.innerHTML = dados?.name;
         rm_image.src = dados?.image;
         rm_id.innerHTML = `<b> ID:</b> ${dados?.id}`;
