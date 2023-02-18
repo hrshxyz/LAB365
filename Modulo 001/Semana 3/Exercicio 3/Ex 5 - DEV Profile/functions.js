@@ -1,51 +1,31 @@
-/* let fetchRes = fetch("https://api.github.com/users/hrshxyz", {
-    method: 'GET',
-    headers: {
-        'Accept': 'application/json',
-    },
-});
+const user_name = document.getElementById("user_name");
+const user_image = document.getElementById("user_image");
+const user_idgit = document.getElementById("user_idgit");
+const user_bio = document.getElementById("user_bio");
 
-fetchRes.then(res =>
-    res.json()).then(d => {
-    return JSON.stringify(d);
-})
+const user_linkedin = document.getElementById("user_linkedin");
+const user_linkedin_link = 'https://www.linkedin.com/in/henrique-ribeiro-souto/'
+const user_linkedin_image = './images/linkedin.png'
+const user_github = document.getElementById("user_github");
+const user_github_image = './images/github.png'
 
- console.log(fetchRes) 
+async function searchData() {
+    try {
+        const response = await fetch("https://api.github.com/users/hrshxyz");
+        const dados = await response.json()
+        console.log(dados);
+        user_name.innerHTML = dados?.name;
+        user_image.src = dados?.avatar_url;
+        user_idgit.innerHTML = `ID: ${dados?.id}`;
+        user_bio.innerHTML = dados?.bio;
+        const user_html_url = dados?.html_url;
+        user_linkedin.innerHTML = (`<a href="${user_linkedin_link}"><img src="${user_linkedin_image}"></a>`)
+        user_github.innerHTML = (`<a href="${user_html_url}"><img src="${user_github_image}"></a>`)
+    }
+    catch (e) { 
+        console.log('Falha ao carregar os dados')
+    }
 
-let apiResponse = fetch("https://api.github.com/users/hrshxyz").then(res => res.json()).then((data) => {
-    return data;
-});
-
-console.log(apiResponse)
-
-
-let Res = fetch('https://api.github.com/users/hrshxyz', {
-    method: 'GET',
-    headers: {
-        'Accept': 'application/json',
-    },
-})
-.then(response => response.json())
-.then(response => console.log(JSON.stringify(response)))
-
-console.log(`teste ${Res}`) */
-
-
-let variable = document.getElementById("profile");
-let nameuser = document.getElementById("name");
-async function buscaDados() {
-  try {
-    const response = await fetch("https://api.github.com/users/hrshxyz");
-    const dados = await response.json()
-    console.log(dados);
-    nameuser.innerHTML = dados?.name;
-    document.getElementById("image").src = dados?.avatar_url;
-    document.getElementById("idgit").innerHTML = `ID: ${dados?.id}`;
-    
-  } 
-  catch (e) {} 
-  finally {
-  }
 }
 
-buscaDados();
+searchData();
