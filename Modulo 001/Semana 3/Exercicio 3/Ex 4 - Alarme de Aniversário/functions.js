@@ -10,6 +10,7 @@ const message_8 = " Milisegundos para o seu Aniversário!";
 function print(message) {
     const birthday = document.getElementById("birthday");
     birthday.innerHTML = (`${message}`);
+    document.getElementById('bd').style.display = 'block';
 }
 
 function calc(today, date){
@@ -36,4 +37,13 @@ function inputDate() {
         : print(message_3)
 }
 
-check.addEventListener('click', setInterval(inputDate, 1000));
+function interval() {
+    inputDate()
+    setInterval(inputDate, 2000)
+}
+
+window.onload = function() {
+    document.getElementById('bd').style.display = 'none';
+}
+
+check.addEventListener('click', interval);
