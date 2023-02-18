@@ -7,6 +7,10 @@ const message_6 = "Você tem ";
 const message_7 = " Anos";
 const message_8 = " Milisegundos para o seu Aniversário!";
 
+window.onload = function() {
+    document.getElementById('bd').style.display = 'none';
+}
+
 function print(message) {
     const birthday = document.getElementById("birthday");
     birthday.innerHTML = (`${message}`);
@@ -40,10 +44,6 @@ function inputDate() {
 function interval() {
     inputDate()
     setInterval(inputDate, 2000)
-}
-
-window.onload = function() {
-    document.getElementById('bd').style.display = 'none';
 }
 
 check.addEventListener('click', interval);
