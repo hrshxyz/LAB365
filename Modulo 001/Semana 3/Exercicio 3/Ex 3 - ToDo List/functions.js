@@ -51,6 +51,21 @@ function changeTaskDescription(taskDescription){
     data[indexTask].taskDescription=taskDescriptionInput;
 }
 
+function addTask() {
+    const task = document.getElementById('addTask').value;
+    const taskDescription = document.getElementById('addTaskDescription').value;
+    document.getElementById('addTaskList').style.display = 'block';
+    if (task != '' && task != undefined && task != null){
+        data.push({ taskDescription  : String(taskDescription), 
+                    task             : String(task)
+                });
+    }
+}
+
+function removeTask() {
+    data.splice(indexTask, 1)
+}
+
 const msgUser = "Tarefa não encontrada!";
 let indexTask = 0;
 
@@ -77,17 +92,3 @@ function searchTask() {
     },0)
 };
 
-function addTask() {
-    const task = document.getElementById('addTask').value;
-    const taskDescription = document.getElementById('addTaskDescription').value;
-    document.getElementById('addTaskList').style.display = 'block';
-    if (task != '' && task != undefined && task != null){
-        data.push({ taskDescription  : String(taskDescription), 
-                    task             : String(task)
-                });
-    }
-}
-
-function removeTask() {
-    data.splice(indexTask, 1)
-}
