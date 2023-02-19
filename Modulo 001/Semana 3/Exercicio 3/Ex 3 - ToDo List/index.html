@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <h1>ToDo List"</h1>
-  <ul id="task"></ul>
+  <h1>ToDo List</h1>
+  <div id="allTaskList">
+      <ul id="task"></ul>
+  </div>
   <input type="text" id="searchTask"/>
   <button onclick="searchTask()" type="button">Pesquisar Tarefa</button>
 
   <ul id="changeTaskList"></ul>
   <input type="text" id="changeTask"/>
   <button onclick="changeTask()" type="button">Altera Tarefa</button>
-
+ 
   <ul id="changetaskDescriptionList"></ul>
   <input type="text" id="taskDescription"/>
   <button onclick="changeTaskDescription()" type="button">Altera Descrição da Tarefa</button>

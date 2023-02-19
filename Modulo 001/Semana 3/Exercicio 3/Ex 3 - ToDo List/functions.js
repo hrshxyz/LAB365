@@ -1,54 +1,56 @@
-const data = [{
-    "taskDescription": "Almoçar às 12hs!",
-    "task": "Almoço"
-  },{
-    "taskDescription": "Jantar no intervalo do Curso!",
-    "task": "janta"
-  }
+const data = [
+    {
+        "taskDescription": "Jantar no intervalo do Curso!",
+        "task": "janta"
+    },
+    {
+        "taskDescription": "Almoçar às 12hs!",
+        "task": "almoco"
+    },
 ];
 
-const ul = document.getElementById("task");
-data.forEach((user) => {
-    const li = document.createElement("li");
-    li.innerHTML = user.task;
-    ul.appendChild(li);
-});
+function mountTasklist() {
+    let allTaskList = document.getElementById("allTaskList");
+    let ul = document.getElementById("task");
+    allTaskList.removeChild(ul);
+    allTaskList.appendChild(ul);
+    ul.innerHTML ='';
+    data.forEach((task) => {
+        const li = document.createElement("li");
+        li.innerHTML = (`Nome da Task: ${task.task} => Descrição da Task: ${task.taskDescription}`);
+        ul.appendChild(li);
+    });
+}
+mountTasklist()
+setInterval(mountTasklist,1000)
 
-function printUser(taskDescription) {
+function printUser(task, taskDescription) {
+    const ul = document.getElementById("task");
     const p = document.getElementById("user");
-    p.innerHTML = taskDescription.taskDescription;
+    p.innerHTML = (`${task} - ${taskDescription}`);
     console.log(data)
 };
 
-function changeTask(taskDescription){
-    const task = document.getElementById('changeTask').value;
-    console.log(task)
-    const alterTask = data.find((alterDescription) => {
-        return alterDescription
-    });
-    alterTask.task = task;
-    printUser(alterTask.task);
-    console.log(alterTask)
+function changeTask(task){
+    const taskInput = document.getElementById('changeTask').value;
+    data[indexTask].task=taskInput;
 }
 
 function changeTaskDescription(taskDescription){
-    const task = document.getElementById('taskDescription').value;
-    console.log(task)
-    const alterTask = data.find((alterDescription) => {
-        return alterDescription
-    });
-    alterTask.taskDescription = task;
-    printUser(alterTask.taskDescription);
-    console.log(alterTask)
+    const taskDescriptionInput = document.getElementById('taskDescription').value;
+    data[indexTask].taskDescription=taskDescriptionInput;
 }
 
 const msgUser = "Tarefa não encontrada!";
+let indexTask = 0;
+
 function searchTask() {
     const task = document.getElementById('searchTask').value;
-    const findtask = data.find((user) => {
-            return user.task === task
-    });
-    findtask != undefined
-        ? printUser(findtask)
-        : printUser(msgUser)
+    let searchTask = data.reduce((atual, valor, indice)=>{
+        if (valor.task == task) { 
+            indexTask = indice;
+            printUser(valor.task, valor.taskDescription)
+        }
+
+    },0)
 };
