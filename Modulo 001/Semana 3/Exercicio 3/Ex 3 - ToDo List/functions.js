@@ -10,12 +10,9 @@ const data = [
 ];
 
 window.onload = function() {
-    document.getElementById('changeTaskList').style.display = 'none';
-    document.getElementById('changetaskDescriptionList').style.display = 'none';
     document.getElementById('addTaskList').style.display = 'none';
     document.getElementById('removeTaskList').style.display = 'none';
-    document.getElementById('searchTask').style.display = 'none';
-    
+    document.getElementById('changeTaskList').style.display = 'none';
 }
 
 function mountTasklist() {
@@ -43,12 +40,15 @@ function printUser(task, taskDescription) {
 
 function changeTask(task){
     const taskInput = document.getElementById('changeTask').value;
-    data[indexTask].task=taskInput;
-}
+    const taskDescriptionInput = document.getElementById('changetaskDescription').value;
+    if (taskInput != '' && taskInput != undefined && taskInput != null && taskDescriptionInput != '' && taskDescriptionInput != undefined && taskDescriptionInput != null){
+        data[indexTask].task=taskInput;
+        data[indexTask].taskDescription=taskDescriptionInput;
+    }
+    document.getElementById('printSearch').style.display = 'none';
+    document.getElementById('changeTask').value ='';
+    document.getElementById('changetaskDescription').value = '';
 
-function changeTaskDescription(taskDescription){
-    const taskDescriptionInput = document.getElementById('taskDescription').value;
-    data[indexTask].taskDescription=taskDescriptionInput;
 }
 
 function addTask() {
@@ -60,35 +60,60 @@ function addTask() {
                     task             : String(task)
                 });
     }
+    document.getElementById('addTask').value ='';
+    document.getElementById('addTaskDescription').value = '';
+
 }
 
 function removeTask() {
     data.splice(indexTask, 1)
 }
 
-const msgUser = "Tarefa não encontrada!";
 let indexTask = 0;
-
+let searchOk = 0;
 function searchTask() {
+    document.getElementById('removeTaskList').style.display = 'block';
     document.getElementById('changeTaskList').style.display = 'none';
-    document.getElementById('changetaskDescriptionList').style.display = 'none';
     document.getElementById('printSearch').style.display = 'none';
-    document.getElementById('removeTaskList').style.display = 'none';
     document.getElementById('searchTask').style.display = 'block';
-    document.getElementById('addTaskList').style.display = 'none';
-    document.getElementById('changeTask').value = '';
-    document.getElementById('taskDescription').value = '';
 
     const task = document.getElementById('searchTask').value;
     let searchTask = data.reduce((atual, valor, indice)=>{
         if (valor.task == task) { 
-            document.getElementById('changeTaskList').style.display = 'block';
-            document.getElementById('changetaskDescriptionList').style.display = 'block';
-            document.getElementById('removeTaskList').style.display = 'block';
             indexTask = indice;
-            printUser(valor.task, valor.taskDescription)
+            printUser(valor.task, valor.taskDescription);
+            searchOk = 1;
         }
-
     },0)
+    searchOk
+        ? ( document.getElementById('removeTaskList').style.display = 'block', searchOk = 0 )
+        : ( document.getElementById('removeTaskList').style.display = 'none', printUser('Tarefa não existe!',task) )
+    document.getElementById('searchTask').value = '';
 };
 
+eventclickaddtask.addEventListener('click', (event) => {
+    document.getElementById('addTaskList').style.display = 'block';
+    document.getElementById('removeTaskList').style.display = 'none';
+    document.getElementById('printSearch').style.display = 'none';
+});
+
+eventclickaddtaskinput.addEventListener('click', (event) => {
+    document.getElementById('addTaskList').style.display = 'none';
+    document.getElementById('removeTaskList').style.display = 'none';
+});
+
+eventclickremovetask.addEventListener('click', (event) => {
+    document.getElementById('printSearch').style.display = 'none';
+    document.getElementById('removeTaskList').style.display = 'none';
+});
+
+eventclickchangetask.addEventListener('click', (event) => {
+    document.getElementById('changeTaskList').style.display = 'block';
+
+});
+
+eventclickchangetaskinput.addEventListener('click', (event) => {
+    document.getElementById('changeTaskList').style.display = 'none';
+    document.getElementById('printSearch').style.display = 'none';
+    document.getElementById('removeTaskList').style.display = 'none';
+});
