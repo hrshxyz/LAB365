@@ -5,7 +5,7 @@ const data = [
     },
     {
         "taskDescription": "Almoçar às 12hs!",
-        "task": "almoco"
+        "task": "almoço"
     },
 ];
 
@@ -35,7 +35,6 @@ function printUser(task, taskDescription) {
     const ul = document.getElementById("task");
     const p = document.getElementById("printSearch");
     p.innerHTML = (`${task} - ${taskDescription}`);
-    console.log(data)
 };
 
 function changeTask(task){
