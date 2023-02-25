@@ -5,9 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+    <canvas id="canvas1"></canvas>
+    <div class="controls">
+        <label for="animations">Escolha a Animação:</label>
+        <select id="animations" name="animations">
+            <option value="idle">Parado</option>
+            <option value="jump">Pular</option>
+            <option value="fall">Caindo</option>
+            <option value="run">Correndo</option>
+            <option value="dizzy">Tonto</option>
+            <option value="sit">Sentar</option>
+            <option value="roll">Rolar</option>
+            <option value="bite">Morder</option>
+            <option value="ko">Abatido</option>
+            <option value="gethit">Atingido</option>
+        </select>
+    </div>
 </body>
-    <script src="./requisicoes.js"></script>
+    <script src="./script.js"></script>
 </html>
