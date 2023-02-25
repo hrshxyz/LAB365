@@ -32,7 +32,22 @@ class account {
     }
 }
 
+class ContaPoupanca extends account{
+    constructor(balance, password, deposit, withdraw, saldo, juros){
+        super(balance, password, deposit, withdraw, saldo);
+        this.juros = juros;
+    }
+    atualizaJuros(){
+        return this.balance = (this.saldo() + (this.saldo() * 0.7 / 100))
+    }
+
+}
 const contaCorrente = new account(0, passwordAccount);
 contaCorrente.deposit(100, '12qwas');
 contaCorrente.withdraw(14, '12qwas');
-console.log(contaCorrente.saldo());
+console.log(`Saldo da conta corrente: ${contaCorrente.saldo()}`);
+
+const contaPoupanca = new ContaPoupanca(0, passwordAccount)
+contaPoupanca.deposit(100, '12qwas');
+console.log(`Saldo da conta poupança: ${contaPoupanca.atualizaJuros()}`)
+console.log(`Saldo da conta poupança: ${contaPoupanca.atualizaJuros()}`)
