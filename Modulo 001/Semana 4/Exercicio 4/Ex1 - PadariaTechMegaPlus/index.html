@@ -5,9 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PadariaTechMegaPlus</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <h1>PadariaTechMegaPlus</h1>
+    <div id="Productlist">
+        <ul id="list"></ul>
+    </div>
+    <div id="form">
+        <button onclick="addProductStock()" type="button">Adicionar Produto no Estoque</button>
+        <button onclick="addStartService()" type="button">Iniciar Atendimento</button>
+    </div>
+    <div id="inputValues">
+        <p id="inputData"></p>
+    </div>
+
+
     
+    <div id="itensCaixa">
+        <ul id="listcaixa"></ul>
+    </div>
+
+<!--       <label for="valor">Entre com o valor para depositar/retirar.</label>
+      <input type="number" name="valor" id="valor" placeholder="10" />
+      <label for="senha">Entre com a sua senha.</label>
+      <input type="password" name="senha" id="senha" placeholder="*************" />
+
+      <button onclick="retira()" type="button">Retirar</button>
+
+      <p id="saldo"></p> -->
+
 </body>
     <script src="./CaixaRegistradora.js"></script>
 </html>
