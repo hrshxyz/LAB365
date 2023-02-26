@@ -27,6 +27,13 @@ class account {
             return -1
         };
     }
+    checkPasswordWithdraw(password) {
+        if (this.#checkPassword(password)) {
+            return 0
+        } else {
+            return -1
+        }
+    }
     saldo() {
         return this.balance;
     }
@@ -54,17 +61,52 @@ class PoupancaPremium extends ContaPoupanca{
 
 }
 
-const contaCorrente = new account(0, passwordAccount);
-contaCorrente.deposit(100, '12qwas');
-contaCorrente.withdraw(14, '12qwas');
-console.log(`Saldo da conta corrente: ${contaCorrente.saldo()}`);
-
-const contaPoupanca = new ContaPoupanca(0, passwordAccount)
-contaPoupanca.deposit(100, '12qwas');
-console.log(`Saldo da conta poupança: ${contaPoupanca.atualizaJuros()}`)
-console.log(`Saldo da conta poupança: ${contaPoupanca.atualizaJuros()}`)
-
 const poupancaPremium = new PoupancaPremium(0, passwordAccount)
-poupancaPremium.deposit(100, '12qwas');
-console.log(`Saldo da conta poupança premium: ${poupancaPremium.atualizaJuros()}`)
-console.log(`Saldo da conta poupança premium: ${poupancaPremium.atualizaJuros()}`)
+
+document.getElementById('password').innerHTML = (`Senha: ${passwordAccount}`)
+
+function atulizaSaldoTela() {
+    document.getElementById('saldo').innerHTML = (`Saldo: ${poupancaPremium.saldo()}`)
+}
+atulizaSaldoTela()
+
+function deposita() {
+    let valor = document.getElementById('valor').value
+    valor = parseInt(valor);
+    const senha = document.getElementById('senha').value
+    if (poupancaPremium.checkPasswordWithdraw(senha) == -1) {
+        document.getElementById('saldo').innerHTML = (`Senha inválida`)
+    } else {
+        if (poupancaPremium.deposit(valor, senha) == -1) {
+            document.getElementById('saldo').innerHTML = (`Senha inválida`)
+        }
+        atulizaSaldoTela()
+    }
+}
+
+function retira() {
+    let valor = document.getElementById('valor').value
+    valor = parseInt(valor);
+    const senha = document.getElementById('senha').value
+
+    if (poupancaPremium.checkPasswordWithdraw(senha) == -1) {
+        document.getElementById('saldo').innerHTML = (`Senha inválida`)
+    } else {
+        if (poupancaPremium.saldo() < valor) {
+            document.getElementById('saldo').innerHTML = (`Seu saldo é menor que o valor solicitado, saldo: ${poupancaPremium.saldo()}`)
+        } else {
+            poupancaPremium.withdraw(valor, senha);
+            atulizaSaldoTela()
+        }
+    }
+}
+
+function atualizaJuros() {
+    const senha = document.getElementById('senha').value
+    if (poupancaPremium.checkPasswordWithdraw(senha) == -1) {
+        document.getElementById('saldo').innerHTML = (`Senha inválida`)
+    } else {
+        poupancaPremium.atualizaJuros()
+        atulizaSaldoTela()
+    }
+}
