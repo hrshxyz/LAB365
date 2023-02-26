@@ -120,9 +120,9 @@ const name = caixaRegistradora.startService('teste')
 caixaRegistradora.addProduct('batata', 6, 123123, 50);
 caixaRegistradora.addItemsBox(124001, 20);
 caixaRegistradora.addItemsBox(123123, 50);
-caixaRegistradora.addItemsBox(123000, 1);
+caixaRegistradora.addItemsBox(123000, 3);
 console.log(stock)
 const totalizador = caixaRegistradora.total();
 console.log(`Total - ${totalizador}`)
-console.log(caixaRegistradora.payment(302))
+console.log(caixaRegistradora.payment(306))
 console.log(productRegister);

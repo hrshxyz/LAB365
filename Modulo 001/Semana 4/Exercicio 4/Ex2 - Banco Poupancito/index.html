@@ -5,9 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Banco Poupancito</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <h1>Banco Poupancito</h1>
+    <div id="form">
+      <label for="valor">Entre com o valor para depositar/retirar.</label>
+      <input type="number" name="valor" id="valor" placeholder="10" />
+      <label for="senha">Entre com a sua senha.</label>
+      <input type="password" name="senha" id="senha" placeholder="*************" />
+      <button onclick="deposita()" type="button">Depositar</button>
+      <button onclick="retira()" type="button">Retirar</button>
+      <p id="password"></p>
+      <p id="saldo"></p>
+</div>
 </body>
 <script src="script.js"></script>
 </html>
