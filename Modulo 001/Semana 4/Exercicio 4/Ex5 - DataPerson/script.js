@@ -5,22 +5,33 @@ class Person {
         this.altura = altura;
     }
     imprimir() {
-        console.log(`Olá me chamo ${this.nome} tenho ${this.idade} anos e tenho ${this.altura} de altura.`)
+        return(`Olá, me chamo ${this.nome} tenho ${this.idade} anos e tenho ${this.altura} de altura.`)
     }
 }
 
-class Profissional extends Person{
-    constructor(nome, idade, altura, funcao){
+class Profissional extends Person {
+    constructor(nome, idade, altura, funcao) {
         super(nome, idade, altura);
         this.funcao = funcao;
     }
     profissao() {
-        console.log(`Olá me chamo ${this.nome} tenho ${this.idade} anos e tenho ${this.altura} de altura e minha profissão é ${this.funcao}.`)
+        return (`Olá, me chamo ${this.nome} tenho ${this.idade} anos, tenho ${this.altura} de altura e minha profissão é ${this.funcao}.`)
     }
 }
 
-const person = new Person('Henrique','39','1.78');
-person.imprimir()
+function geraPessoal() {
+    let nome = document.getElementById('nome').value;
+    let idade = document.getElementById('idade').value;
+    let altura = document.getElementById('altura').value;
+    const person = new Person(nome,idade,altura);
+    document.getElementById('pessoal').innerHTML = person.imprimir();
+};
 
-const profissional = new Profissional('Henrique','39','1.78','Plataform Engineer');
-profissional.profissao()
+function geraProfissional() {
+    let nome = document.getElementById('nome').value;
+    let idade = document.getElementById('idade').value;
+    let altura = document.getElementById('altura').value;
+    let profissao = document.getElementById('profissao').value;
+    const profissional = new Profissional(nome,idade,altura,profissao);
+    document.getElementById('profissional').innerHTML = profissional.profissao();
+};

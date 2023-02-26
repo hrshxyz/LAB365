@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataPerson</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    
+    <h1>Dados Pessoais.</h1>
+    <div id="form">
+        <label for="nome">Entre com o seu Nome.</label>
+        <input type="text" name="nome" id="nome" placeholder="Henrique" />
+        <label for="idade">Entre com a sua Idade.</label>
+        <input type="number" name="idade" id="idade" placeholder="8" />
+        <label for="altura">Entre com a sua Altura.</label>
+        <input type="number" name="altura" id="altura" placeholder="1.78" />
+        <label for="profissao">Entre com a sua Profissão.</label>
+        <input type="text" name="profissao" id="profissao" placeholder="Analista" />      
+        <button onclick="geraPessoal()" type="button">Gerar texto Pessoal</button>
+        <button onclick="geraProfissional()" type="button">Gerar texto Profissional</button>
+        <p id="pessoal"></p>
+        <p id="profissional"></p>
+    </div>
 </body>
 <script src="script.js"></script>
 </html>

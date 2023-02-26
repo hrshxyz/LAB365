@@ -1,0 +1,21 @@
+body {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    font-family: arial;
+    background-color:rgba(128, 31, 31, 0.2);
+    background-image: url(./images/background.jpg);
+    background-size: cover;
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+#form {
+    display: grid;
+}
+
+p {
+    word-wrap: break-word;
+}
