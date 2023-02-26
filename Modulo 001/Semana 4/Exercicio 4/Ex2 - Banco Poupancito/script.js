@@ -35,10 +35,10 @@ class account {
         }
     }
     saldo() {
-            return this.balance;
-        }
+        return this.balance;
     }
-    const contaCorrente = new account(0, passwordAccount);
+}
+const contaCorrente = new account(0, passwordAccount);
 
 document.getElementById('password').innerHTML = (`Senha: ${passwordAccount}`)
 
@@ -53,7 +53,7 @@ function deposita() {
     const senha = document.getElementById('senha').value
     if (contaCorrente.checkPasswordWithdraw(senha) == -1) {
         document.getElementById('saldo').innerHTML = (`Senha inválida`)
-    }else{
+    } else {
         if (contaCorrente.deposit(valor, senha) == -1) {
             document.getElementById('saldo').innerHTML = (`Senha inválida`)
         }
