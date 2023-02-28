@@ -2,12 +2,14 @@ const stock = [
     {
         nameProduct: "Pao",
         price: 2,
-        barcode: 123000
+        barcode: 123000,
+        amountProduct: 10
     },
     {
         nameProduct: "beterraba",
         price: 4,
-        barcode: 124001
+        barcode: 124001,
+        amountProduct: 5
     }
 ];
 
