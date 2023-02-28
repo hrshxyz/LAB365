@@ -16,10 +16,3 @@ chaves.map((key) => {
     }
     console.log(dados[key])
 });
-
-/* chaves.forEach((id) => {
-    dados[id] == chaves[3]
-        ? console.log(dados[id].teste)
-        : console.log(dados[id])
-})
- */
