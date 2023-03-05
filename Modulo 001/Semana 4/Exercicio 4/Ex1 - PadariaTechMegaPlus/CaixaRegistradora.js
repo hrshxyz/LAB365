@@ -67,7 +67,6 @@ class CaixaRegistradora {
         let total = productRegister.reduce((acc, totalPrice) => {
             let calc = (totalPrice.amount * totalPrice.price);
             return acc + calc;
-
         }, 0)
         return (total)
     }
@@ -76,6 +75,7 @@ class CaixaRegistradora {
         const payment = money - total
         if (Math.sign(payment) != -1) {
             productRegister = [];
+            inputValues.innerHTML = ''
             return payment
         } else {
             return ('valor insuficiente')
@@ -123,9 +123,9 @@ function addProductStock() {
     inputData.innerHTML = (`<label for="productName">Entre com o nome do produto.</label>
                             <input type="text" name="productName" id="productName" placeholder="Batata" />
                             <label for="productBarcode">Entre com o código de barra.</label>
-                            <input type="number" name="productBarcode" id="productBarcode" placeholder="Batata" />
+                            <input type="number" name="productBarcode" id="productBarcode" placeholder="123123" />
                             <label for="productPrice">Entre com o preço.</label>
-                            <input type="number" name="productPrice" id="productPrice" placeholder="Batata" /><br>
+                            <input type="number" name="productPrice" id="productPrice" placeholder="10" /><br>
                             <button onclick="AddProduct()" type="button">Adicionar</button>`);
 }
 function AddProduct() {
@@ -188,23 +188,29 @@ function AddProductBox() {
     const inputData = document.getElementById("inputData");
     const productBarcode = document.getElementById("productBarcode").value;
     const amountItems = document.getElementById("amountItems").value;
+    const valorTotal = document.getElementById("totalcompras");
 
     if (productBarcode == '' || amountItems == '') {
         document.getElementById("inputData").innerHTML = (`Todos campos devem ser preenchidos`)
     } else {
         caixaRegistradora.addItemsBox(productBarcode, amountItems);
-        inputData.innerHTML = ''
+        const totalizador = caixaRegistradora.total()
+        valorTotal.innerHTML = '<b>Total a pagar: </b>' + totalizador + '<br><button onclick="fecharconta()" type="button">Fechar Conta</button>';
         console.log(productRegister);
     }
 }
 
+function fecharconta(){
+    const fecharcompras = document.getElementById("fecharcompras");
+    
+    fecharcompras.innerHTML = (`
+    <label for="pagamento">Entre com o valor do Pagamento</label>
+    <input type="number" name="pagamento" id="pagamento" placeholder="20" />
+    <button onclick="finalizar()" type="button">Finalizar</button>`);
+}
 
-/* caixaRegistradora.addItemsBox(124001, 1);
-caixaRegistradora.addItemsBox(123000, 3);
-caixaRegistradora.addItemsBox(123123, 1);
-caixaRegistradora.addItemsBox(124001, 1);
-console.log(productRegister);
-const totalizador = caixaRegistradora.total();
-console.log(totalizador)
-console.log(caixaRegistradora.payment(20))
-console.log(productRegister); */
+function finalizar(){
+    const fecharcompras = document.getElementById("fecharcompras");
+    const valor = document.getElementById("pagamento").value;
+    fecharcompras.innerHTML = caixaRegistradora.payment(valor);
+}
