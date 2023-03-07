@@ -11,10 +11,6 @@ application.get('/', (requisicao, resposta) => {
 
 application.post('/enviar/:nome', (requisicao, resposta) => {
     const { nome } = requisicao.params;
-    console.log(typeof nome )
-    if (!nome) {
-        resposta.send(`Obrigatório envio do nome `)
-    }
    
     console.log(`Rota(/enviar) da API criada pelo(a): ${nome}`);
     resposta.send(`Nome enviado! ${nome}`)
