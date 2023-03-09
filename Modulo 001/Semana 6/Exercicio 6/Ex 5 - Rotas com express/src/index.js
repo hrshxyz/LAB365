@@ -1,12 +1,18 @@
 const express = require('express');
-const application = express();
-application.use(express.json());
-application.listen(3000, () => {
-    console.log('Example app listening on port 3000!');
-});
+const router = express();
+const port = 3000;
+router.use(express.json());
 
-application.post('/enviarobjeto', (requisicao, resposta) => {
-    const objeto = requisicao.body;
-    console.log(objeto);
-    resposta.json(objeto);
+router.get('/', (req, res) => {
+    res.send(`Olá, para enviar um json no body, entre com a root /envia. Ex.: localhost:${port}/envia , usar o método post`)
+})
+
+router.post('/envia', (req, res) => {
+    const dados = req.body;
+    console.log(dados)
+    res.json(dados)
+  })
+
+router.listen(port, () => {
+    console.log(`Example app listening on port ${port}!`)
 })
