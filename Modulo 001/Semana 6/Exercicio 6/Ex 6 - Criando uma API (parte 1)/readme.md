@@ -8,8 +8,7 @@
 
 - Para usar a aplicação:
 
-1 - Faça um get via postman http://localhost:3333/users
-Você irá receber a lista de usuário cadastrados.
+1 - Faça um get via postman http://localhost:3333/users, você irá receber a lista de usuário cadastrados.
 ![image](https://user-images.githubusercontent.com/31933120/224310255-e5ecc0a6-aade-4323-969c-d8e570277a4f.png)
 
 2 - Para adicionar um usuário, use o método PATCH, passando o id e nome do usuário na uri, EX.: http://localhost:3333/users/IDNumérico/NomeDoUsuario
