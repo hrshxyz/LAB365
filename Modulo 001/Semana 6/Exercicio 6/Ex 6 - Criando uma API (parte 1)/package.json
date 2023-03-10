@@ -4,7 +4,8 @@
   "description": "Ex 6 - Criando uma API (parte 1)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "author": "Henrique Ribeiro Souto",
   "license": "ISC",

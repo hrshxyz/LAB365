@@ -1,18 +1,48 @@
 const express = require('express');
-const router = express();
-const port = 3000;
-router.use(express.json());
+const app = express();
+app.use(express.json())
 
-router.get('/', (req, res) => {
-    res.send(`Olá, para enviar um json no body, entre com a root /envia. Ex.: localhost:${port}/envia , usar o método post`)
+let users = [
+    { id: 1, nome: "teste" },
+    { id: 2, nome: "hrs" },
+    { id: 3, nome: "fdfdfdf" }
+];
+
+app.get('/users', (req, res) => {
+    res.send(users)
 })
 
-router.post('/envia', (req, res) => {
-    const dados = req.body;
-    console.log(dados)
-    res.json(dados)
-  })
+app.patch('/users/:id/:nome', (req, res) => {
+    let id = req.params.id * 1;
 
-router.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`)
+    let userExist = users.filter((user) => {
+        return user.id == id;
+    });
+
+    if (userExist.length) {
+        res.status(226).send("ID já existe")
+    } else {
+        users.push({"id": id , "nome": req.params.nome})
+        res.status(201).send("ID Adicionado")
+        console.log(id, req.params.nome)
+    }
 })
+
+
+app.delete('/users/:id', (req, res) => {
+    let id = req.params.id * 1;
+    let idDelete = users.find(idDel => idDel.id === id);
+    let index = users.indexOf(idDelete);
+    console.log(index)
+    console.log(idDelete)
+
+    if (idDelete) {
+        users.splice(index, 1)
+        res.status(200).send("ID deleteado")
+    } else {
+        res.status(404).send("ID não encontrado!")
+    }
+})
+app.listen(3333, () => {
+    console.log('Servidor online!!');
+});
