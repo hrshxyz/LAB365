@@ -21,7 +21,7 @@ app.post('/create', (req, res) => {
 
 // Exercício da Aula
 app.get('/ola/:nome', (req, res) => {
-    res.status(418).send("Olá, meu nome é " + req.params.nome)
+    res.status(200).send("Olá, meu nome é " + req.params.nome)
 })
 
 app.delete('/deleteuser/:id', (req, res) => {
