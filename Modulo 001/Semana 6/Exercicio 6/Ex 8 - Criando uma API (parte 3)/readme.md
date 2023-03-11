@@ -25,7 +25,7 @@ EX.: http://localhost:3333/user
 
 ![image](https://user-images.githubusercontent.com/31933120/224490858-0177d567-e6ef-4e95-89cc-56bab7852aed.png)
 
-Obs.: Caso o cargo enviando no json, não for igual a Líder, o usuário não será cadastrado !
+Obs.: Caso o cargo enviando no json não for igual a Líder, o usuário não será cadastrado !
 
 ![image](https://user-images.githubusercontent.com/31933120/224490926-0745da9a-a80d-4794-a11c-81e4574568d3.png)
 
