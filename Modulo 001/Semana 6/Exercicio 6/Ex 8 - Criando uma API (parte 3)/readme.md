@@ -9,7 +9,7 @@
 - Para usar a aplicação:
 
 1 - Faça um GET via postman ou browser em http://localhost:3333/users, você irá receber a lista de usuário cadastrados.
-![image](https://user-images.githubusercontent.com/31933120/224489750-04142dcf-fc30-4c65-a296-62fd0a3e170b.png)
+![image](https://user-images.githubusercontent.com/31933120/224490828-6f91d9b0-b7d1-488e-8370-a26ef31884d8.png)
 
 
 2 - Para adicionar um usuário, use o método POST, passando os dados em formato json, 
@@ -18,12 +18,16 @@ EX.: http://localhost:3333/user
 {
   "nome":"Ciclano",
   "idade": 21,
-  "cargo":"junior",
+  "cargo":"Líder",
   "senha":"12345678"
 }
 ```
 
-![image](https://user-images.githubusercontent.com/31933120/224489996-6b6246df-a82a-49f6-8712-3d80da60d551.png)
+![image](https://user-images.githubusercontent.com/31933120/224490858-0177d567-e6ef-4e95-89cc-56bab7852aed.png)
+
+Obs.: Caso o cargo enviando no json, não for igual a Líder, o usuário não será cadastrado !
+
+![image](https://user-images.githubusercontent.com/31933120/224490926-0745da9a-a80d-4794-a11c-81e4574568d3.png)
 
 3 - Para deletar um usuário, use o método DELETE, passando o id do usuário por query string, EX.: http://localhost:3333/user?id=IDdoUsuário
 
