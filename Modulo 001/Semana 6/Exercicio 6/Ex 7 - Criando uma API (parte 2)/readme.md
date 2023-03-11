@@ -22,8 +22,8 @@ EX.: http://localhost:3333/user
   "senha":"12345678"
 }
 ```
-![image](https://user-images.githubusercontent.com/31933120/224489834-344aa67d-f5a1-4e81-8a5e-588483b0fb6f.png)
 
-3 - Para deletar um usuário, use o método DELETE, passando o id do usuário por query string, 
-EX.: http://localhost:3333/user?id=IDdoUsuário
+![image](https://user-images.githubusercontent.com/31933120/224489996-6b6246df-a82a-49f6-8712-3d80da60d551.png)
+
+3 - Para deletar um usuário, use o método DELETE, passando o id do usuário por query string, EX.: http://localhost:3333/user?id=IDdoUsuário
 ![image](https://user-images.githubusercontent.com/31933120/224489868-fb70aad8-d261-4593-b8fa-b0b5d38a5111.png)
