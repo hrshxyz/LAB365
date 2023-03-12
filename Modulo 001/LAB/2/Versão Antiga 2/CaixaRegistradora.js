@@ -17,29 +17,25 @@ let productRegister = [];
 let searchOk = 0;
 
 class CaixaRegistradora {
-    constructor(nameProduct, price, barcode, amountProduct, nameClient) {
+    constructor(nameProduct, price, barcode, nameClient) {
         this.nameProduct = nameProduct
         this.price = price
         this.barcode = barcode
         this.nameClient = nameClient
-        this.amountProduct = amountProduct
     }
 
-    addProduct(nameProduct, price, barcode, amountProduct) {
+    addProduct(nameProduct, price, barcode) {
         if (nameProduct == '') {
             return console.log('Obrigatorio o preenchimento do campo nameProduct')
         } else if (price == null) {
             return console.log('Obrigatorio o preenchimento do campo preço')
         } else if (barcode == null) {
             return console.log('Obrigatorio o preenchimento do campo Código de Barra')
-        } else if (amountProduct == null) {
-            return console.log('Obrigatorio o preenchimento do campo quantidade')
         } else {
             stock.push({
                 nameProduct: String(nameProduct),
                 price: Number(price),
-                barcode: Number(barcode),
-                amountProduct: Number(amountProduct)
+                barcode: Number(barcode)
             });
         };
     };
@@ -50,30 +46,7 @@ class CaixaRegistradora {
             return this.nameClient = nameClient;
         }
     }
-    checkAmountStock(barcode, amount) {
-        let retorno = false
-        if (barcode == null) {
-            return console.log('Obrigatorio o preenchimento do campo Código de Barra')
-        } else if (amount == null) {
-            return console.log('Obrigatorio o preenchimento do campo quantidade')
-        } else {
-            let findBarcode = stock.reduce((acc, stockBarcode) => {
-                if (stockBarcode.barcode == barcode) {
-                    if (amount > stockBarcode.amountProduct) {
-                        console.log(`Temos somente ${stockBarcode.amountProduct} item(s) do produto ${stockBarcode.nameProduct}`);
-                    } else {
-                        stockBarcode.amountProduct = stockBarcode.amountProduct - amount;
-                        console.log(stockBarcode.nameProduct);
-                        retorno = true;
-                    }
-                }
-            }, 0)
-            typeof(findBarcode);
-            return retorno
-        };
-    }
-    addItemsBox(barcode, amount, nameClient) {
-        if (this.checkAmountStock(barcode, amount) ) {
+    addItemsBox(barcode, amount, nameClient = this.nameClient) {
         if (barcode == null) {
             return console.log('Obrigatorio o preenchimento do campo Código de Barra')
         } else if (amount == null) {
@@ -86,32 +59,25 @@ class CaixaRegistradora {
                         amount: Number(amount),
                         price: Number(stockBarcode.price),
                         nameProduct: String(stockBarcode.nameProduct),
-                        nameClient: nameClient,
-                        amount: Number(amount)
+                        nameClient: nameClient
                     });
                 }
             }, 0)
         };
-        } else {
-            console.log('Item não adicionado o estoque por não ter a quantidade desejada!')
-            return true;
-        }
     }
     total() {
         let total = productRegister.reduce((acc, totalPrice) => {
             let calc = (totalPrice.amount * totalPrice.price);
             return acc + calc;
+
         }, 0)
         return (total)
     }
-    payment(money, nameClient = this.nameClient) {
+    payment(money) {
         const total = this.total()
         const payment = money - total
         if (Math.sign(payment) != -1) {
-            localStorage.setItem(nameClient ,JSON.stringify(productRegister));
             productRegister = [];
-            inputValues.innerHTML = '';
-            inputValues.innerHTML = '<p id="inputData"></p><p id="totalcompras"></p><p id="quantidade"></p><p id="fecharcompras"></p>'
             return payment
         } else {
             return ('valor insuficiente')
@@ -119,6 +85,8 @@ class CaixaRegistradora {
     }
 }
 caixaRegistradora = new CaixaRegistradora()
+
+
 
 function mountProductlist() {
     let Productlist = document.getElementById("Productlist");
@@ -128,7 +96,7 @@ function mountProductlist() {
     ul.innerHTML = '';
     stock.forEach((product) => {
         const li = document.createElement("li");
-        li.innerHTML = (`<b>Produto:</b> ${product.nameProduct} => <b>Código de barra:</b> ${product.barcode} => <b>Preço:</b> ${product.price} => <b>Quantidade:</b> ${product.amountProduct}`);
+        li.innerHTML = (`<b>Produto:</b> ${product.nameProduct} => <b>Código de barra:</b> ${product.barcode} => <b>Preço:</b> ${product.price}`);
         ul.appendChild(li);
     });
 }
@@ -150,17 +118,16 @@ function listitenscaixa() {
 
 setInterval(listitenscaixa, 1000)
 
+
 function addProductStock() {
     const inputData = document.getElementById("inputData")
 
     inputData.innerHTML = (`<label for="productName">Entre com o nome do produto.</label>
                             <input type="text" name="productName" id="productName" placeholder="Batata" />
                             <label for="productBarcode">Entre com o código de barra.</label>
-                            <input type="number" name="productBarcode" id="productBarcode" placeholder="123123" />
+                            <input type="number" name="productBarcode" id="productBarcode" placeholder="Batata" />
                             <label for="productPrice">Entre com o preço.</label>
-                            <input type="number" name="productPrice" id="productPrice" placeholder="10" /><br>
-                            <label for="amountProduct">Entre com o preço.</label>
-                            <input type="number" name="amountProduct" id="amountProduct" placeholder="10" /><br>
+                            <input type="number" name="productPrice" id="productPrice" placeholder="Batata" /><br>
                             <button onclick="AddProduct()" type="button">Adicionar</button>`);
 }
 function AddProduct() {
@@ -168,12 +135,11 @@ function AddProduct() {
     const productName = document.getElementById("productName").value;
     const productBarcode = document.getElementById("productBarcode").value;
     const productPrice = document.getElementById("productPrice").value;
-    const amountProduct = document.getElementById("amountProduct").value;
 
-    if (productBarcode == '' || productName == '' || productPrice == '' || amountProduct == '') {
+    if (productBarcode == '' || productName == '' || productPrice == '') {
         document.getElementById("inputData").innerHTML = (`Todos campos devem ser preenchidos`)
     } else {
-        caixaRegistradora.addProduct(productName, productPrice, productBarcode, amountProduct);
+        caixaRegistradora.addProduct(productName, productPrice, productBarcode);
         inputData.innerHTML = ''
     }
 }
@@ -224,35 +190,23 @@ function AddProductBox() {
     const inputData = document.getElementById("inputData");
     const productBarcode = document.getElementById("productBarcode").value;
     const amountItems = document.getElementById("amountItems").value;
-    const valorTotal = document.getElementById("totalcompras");
-    const quantidade = document.getElementById("quantidade");
 
     if (productBarcode == '' || amountItems == '') {
         document.getElementById("inputData").innerHTML = (`Todos campos devem ser preenchidos`)
     } else {
-        if ( caixaRegistradora.addItemsBox(productBarcode, amountItems) ){
-            quantidade.innerHTML = 'Produto com estoque insuficiente!';
-        } else {
-            quantidade.innerHTML = ' ';
-        };
-        const totalizador = caixaRegistradora.total()
-        valorTotal.innerHTML = '<b>Total a pagar: </b>' + totalizador + '<br><button onclick="fecharconta()" type="button">Fechar Conta</button>';
+        caixaRegistradora.addItemsBox(productBarcode, amountItems);
+        inputData.innerHTML = ''
         console.log(productRegister);
     }
 }
 
-function fecharconta(){
-    const fecharcompras = document.getElementById("fecharcompras");
-    const quantidade = document.getElementById("quantidade");
-    quantidade.innerHTML = '';
-    fecharcompras.innerHTML = (`
-    <label for="pagamento">Entre com o valor do Pagamento</label>
-    <input type="number" name="pagamento" id="pagamento" placeholder="20" />
-    <button onclick="finalizar()" type="button">Finalizar</button>`);
-}
 
-function finalizar(){
-    const fecharcompras = document.getElementById("fecharcompras");
-    const valor = document.getElementById("pagamento").value;
-    fecharcompras.innerHTML = caixaRegistradora.payment(valor);
-}
+/* caixaRegistradora.addItemsBox(124001, 1);
+caixaRegistradora.addItemsBox(123000, 3);
+caixaRegistradora.addItemsBox(123123, 1);
+caixaRegistradora.addItemsBox(124001, 1);
+console.log(productRegister);
+const totalizador = caixaRegistradora.total();
+console.log(totalizador)
+console.log(caixaRegistradora.payment(20))
+console.log(productRegister); */
