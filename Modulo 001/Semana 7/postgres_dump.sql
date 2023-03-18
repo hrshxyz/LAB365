@@ -51,3 +51,9 @@ CREATE TABLE IF NOT EXISTS pedido(
 
 SELECT * FROM pedido;
 
+CREATE TABLE IF NOT EXISTS teste(
+	id serial PRIMARY KEY,
+	nome VARCHAR(50) NOT NULL
+);
+
+DROP TABLE teste;
