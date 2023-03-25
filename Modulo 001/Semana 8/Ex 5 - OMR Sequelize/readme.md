@@ -1,0 +1,5 @@
+- Para rodar este exeecício deve ter node.js instalado.
+- Iniciar este projeto => npm init -y
+- Instalar Sequelize e modulos do postgres: npm install --save sequelize pg pg-hstore
+- Finalmente rodar o serviço => npm start
+- Com isto será criada a tabela lista e será inserido um item  e será alterado o item 1.
