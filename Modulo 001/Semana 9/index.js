@@ -1,9 +1,13 @@
 const express = require("express");
+const connection = require('./src/database');
+
 const app = express();
 app.use(express.json());
 const port = 3333;
 
 const tarefas = [];
+
+connection.authenticate();
 
 app.get("/", (_, res) => {
   res.json("OK!");
