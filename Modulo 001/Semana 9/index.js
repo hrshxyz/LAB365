@@ -3,14 +3,24 @@ const app = express();
 app.use(express.json());
 const port = 3333;
 
-app.get("/", (req, res) => {
+const tarefas = [];
+
+app.get("/", (_, res) => {
   res.json("OK!");
-  console.log("Entrei aqui.");
 });
 
 app.post("/tasks", (req, res) => {
-  console.log(req.body);
-  res.json({ message: "Tudo Certo!" });
+  const tarefa = {
+    name: req.body.name,
+    description: req.body.description,
+  };
+
+  tarefas.push(tarefa);
+  res.status(201).json(tarefa);
+});
+
+app.get("/tasks", (_, res) => {
+  res.status(200).json(tarefas);
 });
 
 app.listen(port, () => console.log(`Aplicação online, porta ${port}`));
