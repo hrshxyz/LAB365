@@ -45,10 +45,10 @@ app.post("/tasks", async (req, res) => {
     if (taskExist) {
       return res
         .status(400)
-        .json({ error: "Já existe uma tarefa com este nome" });
+        .json({ message: "Já existe uma tarefa com este nome" });
       console.log(taskExist);
     }
-    
+
     const newTask = await Task.create(task);
     res.status(201).json(newTask);
   } catch (error) {
