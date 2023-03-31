@@ -3,7 +3,7 @@ const app = express();
 app.use(express.json());
 const port = 3333;
 const connection = require("./src/database");
-const Place = require("./src/models/task");
+const Place = require("./src/models/place");
 
 connection.authenticate();
 connection.sync();
