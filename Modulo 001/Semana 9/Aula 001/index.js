@@ -15,7 +15,6 @@ app.get("/", (_, res) => {
   try {
     res.json("OK!");
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .json({ message: "Não conseguimos processar a sua solicitação!" });
@@ -40,19 +39,16 @@ app.post("/tasks", async (req, res) => {
 
     // fazer a checagem se o nome da tarefa já existe no banco de dados.
     // fazer um if para validar
-    name = task.name;
-    const taskExist = await Task.findOne({ where: { name } });
+    const taskExist = await Task.findOne({ where: { name: task.name } });
     if (taskExist) {
       return res
         .status(400)
         .json({ message: "Já existe uma tarefa com este nome" });
-      console.log(taskExist);
     }
 
     const newTask = await Task.create(task);
     res.status(201).json(newTask);
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .json({ message: "Não conseguimos processar a sua solicitação!" });
@@ -67,11 +63,17 @@ app.get("/tasks", async (_, res) => {
     /*   const getTasks = await Task.findAll();
     res.status(200).json(getTasks); */
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .json({ message: "Não conseguimos processar a sua solicitação!" });
   }
 });
 
+app.delete("/tasks", async (_, res) => {
+  try {
+    
+  } catch (error) {
+    
+  }
+});
 app.listen(port, () => console.log(`Aplicação online, porta ${port}`));
