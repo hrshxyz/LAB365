@@ -12,10 +12,26 @@ const Task = connection.define("task", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  telefone: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  opening hours: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   description: {
     type: Sequelize.STRING,
-    allowNull: true,
+    allowNull: false,
+  },
+  latitude: {
+    type: Sequelize.INTEGER,,
+    allowNull: trfalseue,
+  },
+  longitude: {
+    type: Sequelize.INTEGER,,
+    allowNull: false,
   },
 });
 
-module.exports = Task;
+module.exports = Equipamento;
