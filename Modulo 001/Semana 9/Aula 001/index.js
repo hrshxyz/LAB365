@@ -69,11 +69,24 @@ app.get("/tasks", async (_, res) => {
   }
 });
 
-app.delete("/tasks", async (_, res) => {
+app.delete("/tasks/:id", async (req, res) => {
   try {
-    
+    const idTask = req.params.id;
+
+    if (!idTask) {
+      return res.status(204).json({ message: "Item não existe!" });
+    }
+
+    const taskDelete = await Task.destroy({ where: { id: idTask } });
+    if (taskDelete) {
+      return res.status(202).json();
+    } else {
+      return res.status(406).json({ message: "Item não existe!" });
+    }
   } catch (error) {
-    
+    res
+      .status(500)
+      .json({ message: "Não conseguimos processar a sua solicitação!" });
   }
 });
 app.listen(port, () => console.log(`Aplicação online, porta ${port}`));
