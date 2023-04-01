@@ -5,4 +5,5 @@
 
 Com isto irá executar a aplicação que escutará na porta 3333.
 
-- Para listar todos os endereços, faça um get no endereço localhost:3333/places.
+- Para deletar um endereço, faça um delete no endereço localhost:3333/places/id .
+- Substitua o id, por um id de um endereço cadastrado.
