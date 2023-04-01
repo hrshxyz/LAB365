@@ -20,18 +20,30 @@ app.post("/places", async (req, res) => {
     };
 
     if (!data.name || !data.telefone) {
-      return res
-        .status(406)
-        .json({ message: "Campos Obrigatórios, name e telefone." });
+      return res.status(406).json({ message: "Campos Obrigatórios, name e telefone." });
     }
 
     const nameExist = await Place.findOne({ where: { name: data.name } });
     if (nameExist) {
-      return res.status(400).json({ message: "Local já cadastrado." });
+      return res
+        .status(400)
+        .json({ message: "Local já cadastrado." });
     }
 
     const place = await Place.create(data);
     res.status(201).json(place);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Não conseguimos processar a sua solicitação!" });
+  }
+});
+
+app.get("/places", async (_, res) => {
+  try {
+    const places = await Place.findAll();
+    return res.json(places);
   } catch (error) {
     console.log(error);
     res
