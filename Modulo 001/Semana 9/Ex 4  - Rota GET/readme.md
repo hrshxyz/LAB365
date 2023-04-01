@@ -4,3 +4,5 @@
 - Finalmente rodar o serviço => node index
 
 Com isto irá executar a aplicação que escutará na porta 3333.
+
+- Para listar todos os endereços, faça um get no endereço localhost:3333/places.
