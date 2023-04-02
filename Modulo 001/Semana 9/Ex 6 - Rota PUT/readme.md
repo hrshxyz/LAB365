@@ -22,8 +22,10 @@ Com isto irá executar a aplicação que escutará na porta 3333.
 -- Campos name e telefone são obrigatórios, demais campos caso não deseje alterar podem ser omitidos.
 
 Ex.: Para alterar somente name, telefone e descrição passe o json abaixo.
+```
 {
  "name": "Casa 3",
  "telefone": "(51) 99999-8888",
  "description": "Academia"
 }
+```
