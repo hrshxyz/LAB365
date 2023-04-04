@@ -1,12 +1,13 @@
 const express = require("express");
 const connection = require("./src/database");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 const Task = require("./src/models/task");
+const User = require("./src/models/user");
 
 const app = express();
 app.use(express.json());
 const port = 3333;
-
-//const tasks = [];
 
 connection.authenticate();
 connection.sync();
@@ -89,4 +90,60 @@ app.delete("/tasks/:id", async (req, res) => {
       .json({ message: "Não conseguimos processar a sua solicitação!" });
   }
 });
+
+app.put("/tasks/:id", async (req, res) => {
+  try {
+    const taskInDatabase = await Task.findByPk(req.params.id);
+    if (!taskInDatabase) {
+      return res.status(404).json({ message: "Tarefa não encontrada!" });
+    }
+
+    taskInDatabase.name = req.body.name || taskInDatabase.name;
+    taskInDatabase.description = req.body.description;
+
+    await taskInDatabase.save();
+
+    res.json(taskInDatabase);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Não conseguimos processar a sua solicitação!" });
+  }
+});
+
+app.post("/users", async (req, res) => {
+  try {
+    const user = {
+      name: req.body.name,
+      cpf: req.body.cpf,
+      password: req.body.password,
+    };
+
+    bcrypt.genSalt(saltRounds, function (err, salt) {
+      bcrypt.hash(user.password, saltRounds, function (err, hash) {
+        return hash;
+      });
+    });
+    console.log(user.password);
+    if (!user.name || !user.cpf || !user.password) {
+      return res.status(406).json({ message: "Invalid Fields" });
+    }
+
+    const userExist = await User.findOne({ where: { cpf: user.cpf } });
+    if (userExist) {
+      return res
+        .status(400)
+        .json({ message: "Já existe um usuário com este cpf!" });
+    }
+
+    const newUSer = await User.create(user);
+    res.status(201).json(newUSer);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .json({ message: "Não conseguimos processar a sua solicitação!" });
+  }
+});
+
 app.listen(port, () => console.log(`Aplicação online, porta ${port}`));
