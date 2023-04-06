@@ -29,9 +29,6 @@ const User = connection.define("user", {
   password: {
     type: Sequelize.STRING,
     allowNull: false,
-    validate: {
-      len: [8,128],
-    },
   },
 });
 

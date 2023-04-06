@@ -1,4 +1,5 @@
 const express = require("express");
+const { Op } = require("sequelize");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
@@ -6,30 +7,18 @@ const saltRounds = 10;
 const connection = require("./src/database");
 const Task = require("./src/models/task");
 const User = require("./src/models/user");
+const log = require("./src/middlewares/log");
+const validateNewUser = require("./src/middlewares/validateNewUser");
+const validateToken = require("./src/middlewares/validateToken");
 
 const app = express();
 const port = 3333;
+
 app.use(express.json());
+//app.use(log);
 
 connection.authenticate();
 connection.sync({ alter: true });
-
-function verifyJWT(req, res, next) {
-  var token = req.headers["x-access-token"];
-  if (!token)
-    return res.status(401).send({ auth: false, message: "No token provided." });
-
-  jwt.verify(token, "ea124657db48b5ad97ea76cdbbc702", function (err, decoded) {
-    if (err)
-      return res
-        .status(500)
-        .send({ auth: false, message: "Failed to authenticate token." });
-
-    // se tudo estiver ok, salva no request para uso posterior
-    req.userId = decoded.id;
-    next();
-  });
-}
 
 app.get("/", (_, res) => {
   try {
@@ -41,11 +30,12 @@ app.get("/", (_, res) => {
   }
 });
 
-app.post("/tasks", async (req, res) => {
+app.post("/tasks", validateToken, async (req, res) => {
   try {
     const task = {
       name: req.body.name,
       description: req.body.description,
+      user_id: req.body.userId,
     };
 
     if (!task.name || !task.description) {
@@ -59,27 +49,34 @@ app.post("/tasks", async (req, res) => {
 
     // fazer a checagem se o nome da tarefa já existe no banco de dados.
     // fazer um if para validar
-    const taskExist = await Task.findOne({ where: { name: task.name } });
+    const taskExist = await Task.findOne({
+      where: { [Op.and]: [{ name: task.name }, { user_id: task.user_id }] },
+    });
     if (taskExist) {
       return res
         .status(400)
         .json({ message: "Já existe uma tarefa com este nome" });
     }
 
+    console.log(task);
     const newTask = await Task.create(task);
+    console.log(newTask.toJSON());
     res.status(201).json(newTask);
   } catch (error) {
+    console.log(error)
     res
       .status(500)
       .json({ message: "Não conseguimos processar a sua solicitação!" });
   }
 });
 
-app.get("/tasks", async (_, res) => {
+app.get("/tasks", validateToken, async (req, res) => {
   try {
-    await Task.findAll().then((tasks) => {
-      res.status(200).json(tasks);
-    });
+    await Task.findAll({ where: { user_id: req.body.userId } }).then(
+      (tasks) => {
+        res.status(200).json(tasks);
+      }
+    );
     /*   const getTasks = await Task.findAll();
     res.status(200).json(getTasks); */
   } catch (error) {
@@ -89,7 +86,7 @@ app.get("/tasks", async (_, res) => {
   }
 });
 
-app.delete("/tasks/:id", async (req, res) => {
+app.delete("/tasks/:id", validateToken, async (req, res) => {
   try {
     const idTask = req.params.id;
 
@@ -110,7 +107,7 @@ app.delete("/tasks/:id", async (req, res) => {
   }
 });
 
-app.put("/tasks/:id", async (req, res) => {
+app.put("/tasks/:id", validateToken, async (req, res) => {
   try {
     const taskInDatabase = await Task.findByPk(req.params.id);
     if (!taskInDatabase) {
@@ -130,7 +127,7 @@ app.put("/tasks/:id", async (req, res) => {
   }
 });
 
-app.post("/users", async (req, res) => {
+app.post("/users", validateNewUser, async (req, res) => {
   try {
     const userExist = await User.findOne({ where: { cpf: req.body.cpf } });
     if (userExist) {
@@ -147,9 +144,9 @@ app.post("/users", async (req, res) => {
       password: hashedPassword,
     };
 
-    if (!user.name || !user.password) {
+    /*     if (!user.name || !user.password) {
       return res.status(406).json({ message: "Invalid Fields" });
-    }
+    } */
 
     /*    const newUser = await User.create(user);
     const userWithoutPassword = newUser.toJSON();

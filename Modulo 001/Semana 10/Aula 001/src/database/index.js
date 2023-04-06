@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const connection = new Sequelize({
   dialect: "postgres",
-  host: "192.168.15.106",
+  host: "localhost",
   port: "5432",
   username: "postgres",
   password: "12345",
@@ -12,6 +12,7 @@ const connection = new Sequelize({
     underscored: true,
     underscoredAll: true,
   },
+  logging: false,
 });
 
 module.exports = connection;
