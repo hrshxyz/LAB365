@@ -10,13 +10,12 @@ const validation = yup.object().shape({
 });
 
 function validateNewUser(req, res, next) {
-  console.log(req.body);
   try {
-    validation.validateSync(req.body);
+    validation.validateSync(req.body, {abortEarly: false});
     next();
   } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
+    res.status(400).json({ message: error.errors });
+  }s
 }
 
 module.exports = validateNewUser;

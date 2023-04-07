@@ -1,8 +1,8 @@
 require("dotenv").config();
 const bcrypt = require("bcrypt");
 const User = require("../../models/user");
-const saltRounds = process.env.SALTROUNDS;
-//const saltRounds = 10;
+//const saltRounds = process.env.SALTROUNDS;
+const saltRounds = 10;
 async function createUser (req, res) {
 
 
