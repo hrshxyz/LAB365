@@ -1,30 +1,33 @@
 const connection = require("../database");
 const Sequelize = require("sequelize");
 
-const User = connection.define("user", {
+const Place = connection.define("place", {
   id: {
     type: Sequelize.INTEGER,
     autoIncrement: true,
+    allowNull: false,
     primaryKey: true,
   },
   name: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  email: {
+  telefone: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique: true,
   },
-  username: {
+  openinghours: {
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: true,
   },
-  password: {
+  description: {
     type: Sequelize.STRING,
-    allowNull: false,
+  },
+  latitude: {
+    type: Sequelize.DECIMAL,
+  },
+  longitude: {
+    type: Sequelize.DECIMAL,
   },
 });
 
-module.exports = User;
+module.exports = Place;
