@@ -5,6 +5,17 @@
 
 Com isto irá executar a aplicação que escutará na porta 3333.
 
+- Para cadastrar um usuário, deve-ser fazer um post no endereço localhost:3333/users, com o body abaixo;
+
+```
+{
+ "name": "teste teste 10",
+ "email": "teste10@teste.com",
+ "username": "teste10",
+ "password": "12312312"
+}
+```
+
 - Para alterar um endereço, faça um put no endereço localhost:3333/places/id .
 - Substitua o id, por um id de um endereço cadastrado.
 
