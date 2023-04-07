@@ -9,6 +9,7 @@ const port = 3333;
 const connection = require("./src/database");
 const Place = require("./src/models/place");
 const User = require("./src/models/user");
+const validateNewUser = require("./src/midllewares/validateNewUser");
 
 connection.authenticate();
 connection.sync({ alter: true });
@@ -160,7 +161,7 @@ app.put("/places/:id", async (req, res) => {
   }
 });
 
-app.post("/users", async (req, res) => {
+app.post("/users", validateNewUser, async (req, res) => {
   try {
     const user = {
       name: req.body.name,
@@ -173,7 +174,7 @@ app.post("/users", async (req, res) => {
       return res.status(406).json({ message: "Invalid Fields" });
     }
     console.log(user.password.length);
-    if (user.password.length <= 8) {
+    if (user.password.length < 8) {
       return res
         .status(406)
         .json({ message: "Senha deve conter outo caracteres ou mais!" });
