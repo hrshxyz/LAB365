@@ -1,0 +1,84 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "tille": "API de Tarefas",
+        "description": "Api para cadastro/consulta/alteração e deleção de tarefas.",
+        "termsOfService": "https://floripamaistec.pmf.sc.gov.br/",
+        "contact": {
+            "email": "souto.henrique@gmail.com"
+        },
+        "version": "1.0.0."
+    },
+    "servers":[
+        {
+            "url": "http://localhost:3333/v1",
+            "description": "API Ex 6 com Swagger"
+        }
+    ],
+    "paths": {
+        "/users" : {
+            "post": {
+                "summary" : "Cadastro de Usuários",
+                "description": "Essa rota é responsável por cadastrar usuários",
+                "tags": ["Users"],
+                "requestBody": {
+                    "content":{
+                        "application/json":{
+                            "schema": {
+                                "$ref": "#/components/schemas/Users"
+                            },
+                            "examples": {
+                                "user":{
+                                    "value": {
+                                        "name": "Fulano",
+                                        "email": "fulano@teste.com",
+                                        "username": "fulano",
+                                        "password": "12345678"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "400" : {
+                        "description": "Usuário já existe!"
+                    },
+                    "201" : {
+                        "description": "Usuário criado com sucesso",
+                        "content": {
+                            "application/json":{
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Users"
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Users": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type" : "string"
+                    },
+                    "email": {
+                        "type" : "string"
+                    },
+                    "username": {
+                        "type" : "string"
+                    },
+                    "password": {
+                        "type" : "string"
+                    }
+                }
+            }
+        }
+    }
+}
