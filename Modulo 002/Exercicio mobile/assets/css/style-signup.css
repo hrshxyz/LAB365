@@ -1,11 +1,12 @@
 body {
     background-color: var(--cor-fundo);
     display: block; 
+    font-family: "Inter";
 }
 
 .formulario {
-    width: 480px;
-    height: 565px;
+    width: 328px;
+    height: 657px;
     border-radius: 6px;
     background-color: var(--cor-fundo-formulario);
     position: absolute;
@@ -16,24 +17,25 @@ body {
 
 h1 {
     text-align: center;
-    font-size: 25px;
-    font-weight: bold;
+    font-size: 26px;
+    font-weight: bolder;
     margin: 40px 0 0 0;
     color: var(--cor-h1);
 }
 
 h2 {
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
     color: var(--cor-h2);
-    margin: 8px 0 0 0;
+    margin: 0 auto;
+    width: 50%;
     font-weight: 500;
 }
 
 .form {
     font-size: 15px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 fieldset {
@@ -43,10 +45,10 @@ fieldset {
 }
 
 input {
-    width: 70%;
+    width: 85%;
     border-style: solid;
     border-radius: 6px;
-    padding: 15px 10px;
+    padding: 12px 10px;
     margin-top: 20px;
     border-color: var(--cor-borda);
     box-shadow:0 0 15px 4px var(--cor-sombra);
@@ -69,7 +71,7 @@ input:hover {
 }
 
 .input-duplo input {
-    width: 32.2%;
+    width: 85%;;
 }
 
 button {
@@ -88,11 +90,11 @@ button {
 .sign {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 90%;
     margin: 30px auto;
     text-align: center;
     color: var(--cor-texto-sign);
-    font-size: 17px;
+    font-size: 18px;
 }
 
 .sign span {
