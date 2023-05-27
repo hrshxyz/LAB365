@@ -1,0 +1,14 @@
+:root {
+    --cor-verde: #00A335;
+    --cor-fundo-formulario: white;
+    --cor-h1: #2C2C2C;
+    --cor-h2: #b1aeae;
+    --cor-fundo: #F0F0F0;
+    --cor-borda: #EBF0FA;
+    --cor-sombra: rgba(0,0,0,0.06);
+    --cor-input-placeholder: #B4B6C1;
+    --cor-input-foco: #aaa5a5;
+    --cor-input-hover: #af9494;
+    --cor-texto-botao: whitesmoke;
+    --cor-texto-sign: #989898;
+}

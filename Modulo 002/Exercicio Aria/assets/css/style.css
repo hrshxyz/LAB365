@@ -1,0 +1,138 @@
+body {
+    background-color: var(--cor-fundo);
+    display: block; 
+}
+
+.formulario {
+    width: 480px;
+    height: 390px;
+    border-radius: 6px;
+    background-color: var(--cor-fundo-formulario);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 40px 0 0 0;
+    color: var(--cor-h1);
+}
+
+h2 {
+    font-size: 16px;
+    text-align: center;
+    color: var(--cor-h2);
+    margin: 8px 0 0 0;
+    font-weight: 500;
+}
+
+.form {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+}
+
+input {
+    border-style: solid;
+    border-radius: 6px;
+    padding: 15px 10px;
+    margin-top: 10px;
+    border-color: var(--cor-borda);
+    box-shadow:0 0 15px 4px var(--cor-sombra);
+    outline: none;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+input::placeholder {
+    font: 18px sans-serif;
+    color: var(--cor-input-placeholder);
+}
+
+input:focus {
+    border: 2px solid var(--cor-input-foco);
+}
+
+input:hover {
+    border: 2px solid var(--cor-input-hover);
+}
+
+button {
+    height: 46px;
+    width: 70%;
+    color: var(--cor-texto-botao);
+    background-color: var(--cor-verde);
+    border-radius: 6px;
+    border: none;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.sign {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 50px auto;
+    text-align: center;
+    color: var(--cor-texto-sign);
+    font-size: 17px;
+}
+
+.sign span {
+    margin-top: 15px;
+}
+
+.textoverde {
+    color: var(--cor-verde);
+}
+
+a:link { text-decoration: none; }
+
+@media only screen and (max-width: 480px) {
+    .formulario {
+        width: 328px;
+        height: 469px;
+    }
+    h1 {
+        font-size: 26px;
+        font-weight: bolder;
+    }
+    h2 {
+        font-size: 18px;
+        margin: 0 auto;
+        width: 70%;
+    }
+    fieldset {
+        width: 85%;
+    }
+    input {
+        padding: 25px 10px;
+        margin-top: 20px;
+    }
+    button {
+        height: 56px;
+        margin-top: 30px;
+        width: 85%;
+    }
+    .sign {
+        width: 90%;
+        font-size: 18px;
+    }
+    .sign span {
+        margin-top: 25px;
+    }
+}
