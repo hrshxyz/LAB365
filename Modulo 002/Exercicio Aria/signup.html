@@ -17,27 +17,27 @@
         <form">
             <fieldset>
                 <label for="empresa"></label>
-                <input type="text" id="empresa" name="empresa" placeholder="Empresa">
+                <input aria-label="Nome da empresa" aria-required="true" type="text" id="empresa" name="empresa" placeholder="Empresa">
                 <label for="cnpj"></label>
-                <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
+                <input aria-label="CNPJ" aria-required="true" type="text" id="cnpj" name="cnpj" placeholder="CNPJ">
                 <label for="responsavel"></label>
-                <input type="text" id="responsavel" name="responsavel" placeholder="Responsável">
+                <input aria-label="Responsável" aria-required="true" type="text" id="responsavel" name="responsavel" placeholder="Responsável">
             </fieldset>
             <fieldset class="input-duplo">
                 <label for="email"></label>
-                <input type="text" id="email" name="email" placeholder="E-mail">
+                <input aria-label="email" aria-required="true" type="text" id="email" name="email" placeholder="E-mail">
                 <label for="telefone"></label>
-                <input type="text" id="telefone" name="telefone" placeholder="Telefone">
+                <input aria-label="Telefone" aria-required="true" type="text" id="telefone" name="telefone" placeholder="Telefone">
                 <label for="senha"></label>
-                <input type="text" id="senha" name="senha" placeholder="Senha">
+                <input aria-label="Senha" aria-required="true" type="text" id="senha" name="senha" placeholder="Senha">
                 <label for="confirm-senha"></label>
-                <input type="text" id="confirm-senha" name="confirm-senha" placeholder="Confirmar senha">
+                <input aria-label="Confirmar senha" aria-required="true" type="text" id="confirm-senha" name="confirm-senha" placeholder="Confirmar senha">
             </fieldset>
         </form>
-        <button type="button">Criar Conta</button>
+        <button role="button" aria-label="Criar Conta" type="button">Criar Conta</button>
         </div>
         <div class="sign">
-            <span>Já possui uma conta? <a href="signin.html"><span class="textoverde">Realizar login</span></a></span>
+            <span>Já possui uma conta? <a href="signin.html"><span aria-label="Realizar login" class="textoverde">Realizar login</span></a></span>
         </div>
     </div>
 </body>
