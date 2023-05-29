@@ -1,0 +1,18 @@
+:root {
+    --color-titulo-background: #111111
+}
+
+.header-menu a:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0px;
+    background: white;
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+
+
+.titulo {
+    background-color: var(--color-titulo-background) !important;
+}
