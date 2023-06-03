@@ -19,12 +19,6 @@ function Main() {
                 </div> */}
 
             </div>
-            <div className='Buttons'>
-                 <button className='button'>Pesquisa Google</button>
-                 <button className='button'>Estou com sorte</button>
-            </div>
-            <div className='Banner'>
-            </div>
         </div>
     )
 }
