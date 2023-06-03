@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import Buttons from './components/Buttons';
 
 function App() {
+  const title = "Hello World!"
+  document.title = title;
   return (
     <div className="App">
       <Header/>
